@@ -1,0 +1,7 @@
+<style>
+    .box{
+        border: 1px solid #aaa; /*getting border*/
+        border-radius: 4px; /*rounded border*/
+        color: #000; /*text color*/
+    }
+</style>
