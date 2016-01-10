@@ -1,6 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
 
-<script src="/res/https.js"></script>
+<script src="/libs/vigilo-js/index.js"></script>
+<noscript>Your browser does not support JavaScript or it is disabled!</noscript>
+
 <style>
 html,
 body {
@@ -70,27 +72,33 @@ body {
 		</style>
 	<![endif]-->
 	
+	<title>Login Area</title>
 	
-		<!-- Meta TAG's -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	
+	<meta charset="UTF-8">
 	<link rel="icon" href="/res/favicon.ico" type="image/x-icon"/>
 	<link rel="shortcut icon" href="/res/favicon.ico" type="image/x-icon"/>
-	<link rel="shortcut icon" href="/favicon.ico?v=2">
-		<!-- Custom styles for this template -->
-	<link rel="stylesheet" type="text/css" href="/res/style.css"> 
-	<link rel="stylesheet" type="text/css" href="/res/main.css"> 
-		<!-- Scripts -->
-	<script src="/res/jquery.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/res/smoothscroll.js"></script>
-		<!-- Bootstrap -->
+	<link rel="shortcut icon" href="/res/favicon.ico?v=2">
+	<link rel="stylesheet" type="text/css" href="/res/style.css">
+	<link rel="stylesheet" type="text/css" href="/res/main.css">
 	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="/res/smoothscroll.js"></script>
+	<script src="/res/jquery.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	
+	<script src="/res/jquery-2.1.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/res/jquery-eu-cookie-law-popup.css"/>
+	<script src="/res/jquery-eu-cookie-law-popup.js"></script>
+		<!-- Scripts -->
+	
+	
 	</head>
 	
-	<body>
+	<body class="eupopup eupopup-top">
 	<div id="wrapper">
 <form class="form-horizontal" method="post">
 <fieldset>
@@ -118,6 +126,8 @@ body {
   <center><span class="help-block"><a href="/login/forgot/">Forgot your password?</a> or <a href="/register/">You don't have an account?</a></span></center>
   </div>
 </div>
+
+<center><div class="g-recaptcha" data-sitekey="6LfO9hQTAAAAAJcjxdNatHd9l4qdWP4ymRzEkAYl"></div></br></center>
 
 <!-- Button (Double) -->
 <div class="form-group">
