@@ -4,7 +4,7 @@
 
 Vigilo is a web-based hacking simulation game, where you play the role of a hacker seeking for money and power. Now, this will work in PHP v5.4, v5.5, v5.6, v7.0 and nightly PHP version.
 
-### Features :
+### Features
 You have a lot of things to do in-game:
   - Complete Missions
   - Earn money
@@ -16,19 +16,17 @@ You have a lot of things to do in-game:
   - Create a clan / guild
   - DDoS Attacks
 
-### Version / Build :
+### Version / Build
 v0.1.20 Alpha Version - Build 20160113-154649-0120
 
-### Installation :
-
+### Installation
  - Coming Soon!
 
-### Plugins :
-
+### Plugins
 Vigilo is currently extended with the following plugins:
 * Coming Soon!
 
-### Thanks To :
+### Thanks To
 Vigilo uses a number of open source projects to work correctly:
 
 * Twitter Bootstrap
@@ -36,10 +34,10 @@ Vigilo uses a number of open source projects to work correctly:
 * jquery-eu-cookie-law-popup
 * reveal-js
 
-### TODO :
+### TODO
  - Coming Soon!
 
-### Contributors :
+### Contributors
  - **Ricardo Subtil** - General Developer
  - **Luís Ferreira** - General Developer
  - **Francisco Jordão** - Contributor
@@ -48,12 +46,11 @@ Vigilo uses a number of open source projects to work correctly:
 
 Want to contribute? Great! Contact us or make a pull request on our github repository.
 
-### Legal Disclaimer :
+### Legal Disclaimer
 Vigilo is not related to any real hacking activity. All in-game content is fictional and do not represent real user identification. IP addresses are randomly generated.
 
-### License :
+### License
 GNU GENERAL PUBLIC LICENSE / Version 2, June 1991
 
 
 More details coming soon. **It's freedom, it's opensource!**
-
