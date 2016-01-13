@@ -35,7 +35,9 @@ Vigilo uses a number of open source projects to work correctly:
 * reveal-js
 
 ### TODO
- - Coming Soon!
+ - Login Form
+ - Main Panel
+ - Coming Soon! (Share ideas with us)
 
 ### Contributors
  - **Ricardo Subtil** - General Developer
