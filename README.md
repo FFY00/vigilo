@@ -20,7 +20,7 @@ You have a lot of things to do in-game:
 v0.1.20 Alpha Version - Build 20160113-154649-0120
 
 ### Installation
- - Coming Soon!
+You can see installation guide in [INSTALL.md](https://github.com/vigiloproject/vigilo/blob/master/INSTALL.md) file
 
 ### Plugins
 Vigilo is currently extended with the following plugins:
