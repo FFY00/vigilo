@@ -1,4 +1,6 @@
 # VigiloProject
+[![Build Status](https://travis-ci.org/vigiloproject/vigilo.svg?branch=master)](https://travis-ci.org/vigiloproject/vigilo)
+![License](https://img.shields.io/badge/License-GNU_GPL-lightgrey.svg)
 ###### v0.1.20 Alpha Version - Build 20160113-154649-0120
 ------------------------------------------
 
