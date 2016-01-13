@@ -32,6 +32,8 @@ Vigilo uses a number of open source projects to work correctly:
 
 * Twitter Bootstrap
 * jQuery
+* jquery-eu-cookie-law-popup
+* reveal-js
 
 ### TODO :
  - Coming Soon!
