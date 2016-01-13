@@ -63,6 +63,7 @@ Vigilo uses a number of open source projects to work correctly:
  - [x] Register Form
  - [x] Register Validation
  - [x] Email Confirmation
+ - [ ] Config travis-ci
  - [x] Login Form
  - [ ] Login Validation
  - [ ] Main Panel
