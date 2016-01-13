@@ -54,3 +54,4 @@ GNU GENERAL PUBLIC LICENSE / Version 2, June 1991
 
 
 More details coming soon. **It's freedom, it's opensource!**
+This document was written with [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/) and [Emoji](http://www.emoji-cheat-sheet.com/)
