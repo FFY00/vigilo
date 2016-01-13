@@ -59,6 +59,7 @@ Vigilo uses a number of open source projects to work correctly:
 * jQuery
 * jquery-eu-cookie-law-popup
 * reveal-js
+* atoum
 
 ### TODO
  - [x] Register Form
