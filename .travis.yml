@@ -5,6 +5,11 @@ php:
   - '5.6'
   - '7.0'
   - nightly
+  - hhvm
 
 before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
 script: php mageekguy.atoum.phar
+
+before_script:
+  - composer install
+script: phpunit --coverage-text tests
