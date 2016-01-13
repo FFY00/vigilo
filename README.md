@@ -1,6 +1,7 @@
 # VigiloProject [![Build Status](https://travis-ci.org/vigiloproject/vigilo.svg?branch=master)](https://travis-ci.org/vigiloproject/vigilo) ![License](https://img.shields.io/badge/License-GNU_GPL-lightgrey.svg)
 ###### v0.1.20 Alpha Version - Build 20160113-154649-0120
 ------------------------------------------
+:shipit: Web-Based Hacking simulation game
 
 Vigilo is a web-based hacking simulation game, where you play the role of a hacker seeking for money and power. Now, this will work in PHP v5.4, v5.5, v5.6, v7.0 and nightly PHP version.
 
