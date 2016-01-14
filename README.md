@@ -127,7 +127,7 @@ Type = 1,2,3,4
  - **Ricardo Subtil** - General Developer
  - **Luís Ferreira** - General Developer
  - **Francisco Jordão** - Contributor
- - **.** - Security Researcher
+ - **Filipe Laíns <FFY00>** - Security Researcher
  - **.** - Designer
 
 Want to contribute? Great! Contact us or make a pull request on our github repository.
