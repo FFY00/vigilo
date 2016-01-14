@@ -71,6 +71,58 @@ Vigilo uses a number of open source projects to work correctly:
  - [ ] Main Panel
  - [ ] Coming Soon! (Share ideas with us)
 
+##### Hardware
+
+Type = 1,2,3,4
+
+1 - CPU
+2 - Hard Drive
+3 - Internet
+4 - External Drive
+
+Spec:
+
+CPU - Mhz 	   (Ex: 300 - 300Mhz)
+Hard Drive - GB  (Ex: 1 - 1GB)
+Internet - MB/s    (Ex: 1 - 1MB/s)
+External Drive - GB (Ex: 0.1 - 0.1GB)
+
+CPU:
+
+Aroma Technology Boost - 300Mhz
+Aroma NextGen Green    - 500Mhz
+Aroma NextGen Blue     - 650Mhz
+Antel Donerom S 170    - 800Mhz
+Antel Donerom L 220    - 950Mhz
+AMC Revolution 2000    - 1000Mhz
+Antel Spartan A-220    - 1200Mhz
+AMC Millenium I/O      - 1400Mhz
+Antel Permanent Power  - 1800Mhz
+Antel d3               - 2000MhZ
+AMC En Edge            - 2500Mhz
+Antel d8               - 3000Mhz
+AMC Company En-250     - 3500Mhz
+Antel Server XEN       - 4000Mhz
+AMC + Antel Homebrew   - 5000Mhz
+
+Hard Drive:
+
+Samdung Citrin HardDrive - 1GB
+Toniba Essential Drive   - 2GB
+Tohiba Enterprise Drive  - 3GB
+Samdung Home Space       - 5GB
+WF NextGen HardDrive     - 8GB
+Samdung SATA Revolution  - 10GB
+Tohiba Internet Rev      - 15GB
+WF Home Drive Edition    - 25GB
+Samdung Dual-boot HD     - 40GB
+Tohiba Natura 500        - 50GB
+Samdung Millenium Rev    - 100GB
+Tohiba No-waste Files HD - 250GB
+Samdung TooMuchGB        - 500GB
+Samdung NewSpaceUnit     - 1000GB
+2 x Samdung NewSpaceUnit - 2000GB
+
 ### Contributors
  - **Ricardo Subtil** - General Developer
  - **Luís Ferreira** - General Developer
