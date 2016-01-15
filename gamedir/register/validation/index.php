@@ -342,7 +342,7 @@ $headers[] = "X-Mailer: PHP/".phpversion();
 mail($email, $subject ,$msg , implode("\r\n", $headers));
 
 
-$mysqli->close();
+$db = null;
 
 echo <<<REGISTERED
 <div id="header">
