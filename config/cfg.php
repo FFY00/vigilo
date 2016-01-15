@@ -6,7 +6,12 @@ $password = "";
 $dbname =  "";
 
 //do connection
-$mysqli = new mysqli($hostname, $username, $password, $dbname);
+//$mysqli = new mysqli($hostname, $username, $password, $dbname);
+
+// We're migrating from mysqli to PDO
+$db = new PDO("mssql:host=$hostname;dbname=$dbname", $username, $password) or die(mysql_error());
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 //google analytics ID
 /* To activate import googleanalytics() function */
@@ -19,15 +24,19 @@ if (mysqli_connect_errno()) {
 }
 
 // return database name
+/*
 if ($result = $mysqli->query("SELECT DATABASE()")) {
     $row = $result->fetch_row();
     $dbresponse_name= $row[0];
     $result->close();
 }
+
+
 // return error in database connection
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
 }
+*/
 
 //api remote path
 $api_remotepath = ""; //Without / in the end of url
