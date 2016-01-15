@@ -1,4 +1,4 @@
-<?php require("../../config/cfg.php"); ?>
+<?php require_once("../../config/cfg.php"); ?>
 <!DOCTYPE HTML>
 
 <script src="/libs/vigilo-js/index.js"></script>
