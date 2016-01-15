@@ -71,7 +71,7 @@ $json_parse_array = json_decode($captcha_response_body, true);
 $captcha_response_json_error_codes = $json_parse_array->{'error-codes'};
 
 if ($captcha_response_json_success == "false"){
-	echo '
+	echo <<<CAPTCHA
 <div id="header">
 	<center><h1>Wrong captcha, try again!</h1><br>
 </div>
@@ -82,13 +82,14 @@ if ($captcha_response_json_success == "false"){
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+CAPTCHA;
     exit;
 }
 
 if(!($email == $confemail))
 {
-	echo '
+	echo <<<EMAIL
 <div class="container">
 <div class="row">
 <div id="header">
@@ -101,14 +102,15 @@ if(!($email == $confemail))
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>>';
+</div>>
+EMAIL;
 	exit;
 }
 
 
 if(!($passwd == $confpasswd))
 {
-	echo '
+	echo <<<PASSWORD
 <div id="header">
 	<center><h1>Your password confirmation is wrong!</h1><br>
 </div>
@@ -119,14 +121,15 @@ if(!($passwd == $confpasswd))
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+PASSWORD;
 	exit;
 }
 
 $query = mysqli_query($mysqli, "SELECT * FROM users WHERE username='" . $usr . "'");
 if(!($usr == NULL)){
 if(mysqli_num_rows($query) > 0){
-    echo '
+    echo <<<USER
 <div id="header">
 	<center><h1>This username is already exists!</h1><br>
 </div>
@@ -138,7 +141,7 @@ if(mysqli_num_rows($query) > 0){
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
-';
+USER;
     exit;
 }
 }
@@ -146,7 +149,7 @@ if(mysqli_num_rows($query) > 0){
 $query = mysqli_query($mysqli, "SELECT * FROM users WHERE email='" . $email . "'");
 if(!($usr == NULL)){
 if(mysqli_num_rows($query) > 0){
-    echo '
+    echo <<<EMAIL
 <div id="header">
 	<center><h1>This email is already exists!</h1><br>
 </div>
@@ -158,14 +161,14 @@ if(mysqli_num_rows($query) > 0){
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
-';
+EMAIL;
     exit;
 }
 }
 
 if($usr == NULL)
 {
-	echo '
+	echo <<<WRONG
 <div id="header">
 	<center><h1>Wrong username!</h1><br>
 </div>
@@ -176,13 +179,14 @@ if($usr == NULL)
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+WRONG;
     exit;
 }
 
 if($passwd == NULL)
 {
-echo '
+echo <<<BLANK
 <div id="header">
 	<center><h1>Blank password!</h1><br>
 </div>
@@ -193,13 +197,14 @@ echo '
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+BLANK;
     exit;
 }
 
 if(strlen($passwd) < 8)
 {
-echo '
+echo <<<MIN
 <div id="header">
 	<center><h1>Insert minimum 8 characters in your password!</h1><br>
 </div>
@@ -210,14 +215,16 @@ echo '
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+MIN;
     exit;
 }
 
 if($email == NULL)
 {
-	echo '<div id="header">
-	<center><h1>Wrong email!</h1><br>
+	echo <<<EMAIL
+<div id="header">
+<center><h1>Wrong email!</h1><br>
 </div>
 <div id="content">
 <center>
@@ -226,14 +233,16 @@ if($email == NULL)
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+EMAIL;
     exit;
 }
 
 if($username == $email)
 {
-	echo '<div id="header">
-	<center><h1>We dont allow username equal email!</h1><br>
+	echo <<<UE
+<div id="header">
+<center><h1>We dont allow username equal email!</h1><br>
 </div>
 <div id="content">
 <center>
@@ -242,15 +251,16 @@ if($username == $email)
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+UE;
     exit;
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 {
-	echo '
+	echo <<<EMAIL
 <div id="header">
-	<center><h1>Invalid email address!</h1><br>
+<center><h1>Invalid email address!</h1><br>
 </div>
 <div id="content">
 <center>
@@ -259,7 +269,8 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
-</div>';
+</div>
+EMAIL;
     exit;
 }
 /*
@@ -333,7 +344,7 @@ mail($email, $subject ,$msg , implode("\r\n", $headers));
 
 $mysqli->close();
 
-echo '
+echo <<<REGISTERED
 <div id="header">
 	<center><h1>User successfully registered!</h1><br>
 </div>
@@ -343,7 +354,7 @@ echo '
 </center>
 </div>
 </div>
-';
+REGISTERED;
 ?>
 
 <div id="footer">
