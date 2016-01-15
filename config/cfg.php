@@ -17,12 +17,6 @@ $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 /* To activate import googleanalytics() function */
 $google_ua_id="";
 
-// check connection
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
 // return database name
 /*
 if ($result = $mysqli->query("SELECT DATABASE()")) {
@@ -30,8 +24,6 @@ if ($result = $mysqli->query("SELECT DATABASE()")) {
     $dbresponse_name= $row[0];
     $result->close();
 }
-
-
 // return error in database connection
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
