@@ -24,7 +24,6 @@
 <?php 
 
 //Import libraries
-include_once('../../libs/php/HttpRequest.php');
 include_once('../../libs/php/vigilolibrary.php');
 
 $usr = $_POST["usr"];
@@ -126,9 +125,9 @@ PASSWORD;
 	exit;
 }
 
-$query = mysqli_query($mysqli, "SELECT * FROM users WHERE username='" . $usr . "'");
+$query = "SELECT * FROM users WHERE username='" . $usr . "'";
 if(!($usr == NULL)){
-if(mysqli_num_rows($query) > 0){
+if(($db->query($query)->fetchColumn()) > 0){
     echo <<<USER
 <div id="header">
 	<center><h1>This username is already exists!</h1><br>
@@ -146,9 +145,9 @@ USER;
 }
 }
 
-$query = mysqli_query($mysqli, "SELECT * FROM users WHERE email='" . $email . "'");
+$query = "SELECT * FROM users WHERE email='" . $email . "'";
 if(!($usr == NULL)){
-if(mysqli_num_rows($query) > 0){
+if(($db->query($query)->fetchColumn()) > 0){
     echo <<<EMAIL
 <div id="header">
 	<center><h1>This email is already exists!</h1><br>
@@ -292,8 +291,9 @@ while(1) {
 //try generate ip address
 $random_ip = rand(1, 255).".".rand(1, 255).".".rand(1, 255).".".rand(1, 255);
 
-$query = mysqli_query($mysqli, "SELECT * FROM users WHERE gameip='" . $random_ip . "'");
-	if(mysqli_num_rows($query) > 0)
+$query = "SELECT * FROM users WHERE gameip='" . $random_ip . "'";
+
+	if(($db->query($query)->fetchColumn()) > 0)
 	{
 		$ipv4 = "1";
 	}
@@ -313,12 +313,15 @@ $generated_passwd = hash('sha512', $passwd);
 //Generate email key confirmation
 $generated_key=emailkey();
 
-//write in mysqli database
-$conn = mysqli_query($mysqli, "INSERT INTO users (username, password, email, gameip, confirmkey) VALUES ('$usr', '$generated_passwd', '$email', '$generated_gameip', '$generated_key');");
-
-if (!$conn) {
-    echo "Failed to run query: (" . $mysqli->errno . ") " . $mysqli->error;
-}
+//write in mysql database
+try {
+	$sql = "INSERT INTO users (username, password, email, gameip, confirmkey) VALUES ('$usr', '$generated_passwd', '$email', '$generated_gameip', '$generated_key');";
+	$db->exec($sql);
+	}
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
 
 $subject = "Vigilo: Email Confirmation";
 $msg= 'Hi '. $usr .',
