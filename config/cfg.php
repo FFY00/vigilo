@@ -9,7 +9,7 @@ $dbname =  "";
 //$mysqli = new mysqli($hostname, $username, $password, $dbname);
 
 // We're migrating from mysqli to PDO
-$db = new PDO("mssql:host=$hostname;dbname=$dbname", $username, $password) or die(mysql_error());
+$db = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
