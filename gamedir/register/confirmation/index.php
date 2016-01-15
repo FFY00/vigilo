@@ -1,4 +1,11 @@
+<!-- 
+Yb    dP 88  dP""b8 88 88      dP"Yb  
+ Yb  dP  88 dP   `" 88 88     dP   Yb 
+  YbdP   88 Yb  "88 88 88  .o Yb   dP 
+   YP    88  YboodP 88 88ood8  YbodP  
+-->
 <?php require_once("../../../config/cfg.php"); ?>
+
 <!DOCTYPE HTML>
 <noscript>Your browser does not support JavaScript or it is disabled!</noscript>
 <html>
@@ -23,9 +30,9 @@
 <?php include_once('../../libs/php/vigilolibrary.php');
 $confirm_email_key=$_GET["key"];
 
-$query = mysqli_query($mysqli, "SELECT * FROM users WHERE confirmkey='" . $confirm_email_key . "'");
-if(mysqli_num_rows($query) > 0){
-    echo '
+$query = "SELECT * FROM users WHERE confirmkey='" . $confirm_email_key . "'";
+if(($db->query($query)->fetchColumn()) > 0){
+    echo <<<EMAILCONFIRMATION
 <div id="header">
 	<center><h1>Email confirmed!</h1><br>
 </div>
@@ -37,16 +44,20 @@ if(mysqli_num_rows($query) > 0){
 <meta http-equiv="refresh" content="5;url=/login">
 </div>
 </div>
-';
-	$conn = mysqli_query($mysqli, "UPDATE users SET confirmkey='". $confirm_email_key . "x" ."', confirmed='1'
-WHERE confirmkey='". $confirm_email_key ."'; ");
+EMAILCONFIRMATION;
 
-if (!$conn) {
-    echo "Failed to run query: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-    exit;
-}
-echo '
+try {
+	$sql = "UPDATE users SET confirmkey='". $confirm_email_key . "x" ."', confirmed='1'
+WHERE confirmkey='". $confirm_email_key ."'; ";
+	$db->exec($sql);
+	}
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+
+	
+echo <<<EMAILCONFIRMATIONFAIL
 <div id="header">
 	<center><h1>Email confirmation key not founded!</h1><br>
 </div>
@@ -71,3 +82,4 @@ echo '
 </div>
 </body>
 </html>
+EMAILCONFIRMATIONFAIL;
