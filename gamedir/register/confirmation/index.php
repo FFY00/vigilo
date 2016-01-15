@@ -1,4 +1,4 @@
-<?php require("../../../config/cfg.php"); ?>
+<?php require_once("../../../config/cfg.php"); ?>
 <!DOCTYPE HTML>
 <noscript>Your browser does not support JavaScript or it is disabled!</noscript>
 <html>
