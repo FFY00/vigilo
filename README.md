@@ -69,10 +69,10 @@ Vigilo uses a number of open source projects to work correctly:
  - [x] Login Form
  - [ ] Login Validation
  - [ ] Main Panel
+ - [ ] Real vs. Game Disk Space Math Formula
  - [ ] Coming Soon! (Share ideas with us)
 
 ##### Hardware
-
 Type = 1,2,3,4
 
 1. CPU
@@ -81,14 +81,12 @@ Type = 1,2,3,4
 4. External Drive
 
 ##### Spec
-
 - CPU - Mhz 	   (Ex: 300 - 300Mhz)
 - Hard Drive - GB  (Ex: 1 - 1GB)
 - Internet - MB/s    (Ex: 1 - 1MB/s)
 - External Drive - GB (Ex: 0.1 - 0.1GB)
 
 ##### CPU
-
 - Aroma Technology Boost - 300Mhz
 - Aroma NextGen Green    - 500Mhz
 - Aroma NextGen Blue     - 650Mhz
@@ -106,7 +104,6 @@ Type = 1,2,3,4
 - AMC + Antel Homebrew   - 5000Mhz
 
 ##### Hard Drive
-
 - Samdung Citrin HardDrive - 1GB
 - Toniba Essential Drive   - 2GB
 - Tohiba Enterprise Drive  - 3GB
@@ -122,6 +119,44 @@ Type = 1,2,3,4
 - Samdung TooMuchGB        - 500GB
 - Samdung NewSpaceUnit     - 1000GB
 - 2 x Samdung NewSpaceUnit - 2000GB
+
+##### Software
+Coming Soon!
+
+##### Cracker Hierarchy (tip proposal)
+- VeryBasic Cracker
+- Basic Cracker
+- Generic Cracker
+- Decent Cracker
+- Cracker
+- Good Cracker
+- VeryGood Cracker
+- Powerful Cracker
+- VeryPowerful Cracker
+- Premium Cracker
+- Master Cracker
+- Vigilo Cracker
+
+##### Bitcoin Miner Hierarchy (tip proposal)
+- VeryBasic Miner
+- Basic Miner
+- Generic Miner
+- Decent Miner
+- Miner
+- Good Miner
+- VeryGood Miner
+- Powerful Miner
+- VeryPowerful Miner
+- Premium Miner
+- Master Miner
+- Vigilo Miner
+
+##### Other Viruses (tip proposal)
+- trojanuaryllus
+- bitrorus
+- alphavigirus
+- vigirus
+
 
 ### Contributors
  - **Ricardo Subtil** - General Developer
