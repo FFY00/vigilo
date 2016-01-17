@@ -4,7 +4,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
   YbdP   88 Yb  "88 88 88  .o Yb   dP 
    YP    88  YboodP 88 88ood8  YbodP  
 -->
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 	
 	<!-- vigilo JavaScript Script -->
 	<script src="/libs/vigilo-js/index.js"></script>
@@ -93,25 +93,26 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			<div class="container">
 				<div class="row">
 					<div id="header">
-						<center><h1>Welcome to Vigilo!</h1>
+						<p style="text-align:center"><h1>Welcome to Vigilo!</h1>
 						<p>Vigilo is a web-based hacking simulation game, where you play the role of a hacker seeking for money and power.</p><br>
+						</p>
 					</div>
 					<div id="content">
-						<center>
+						<p style="text-align:center">
 						<?php 
 							echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
 							echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
 						?>
-						</center>
+						</p>
 					</div>
 				</div>
 				<div id="footer">
-					<center>
+					<p style="text-align:center">
 						<br>
 						<h6>
 							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
 						</h6>
-					</center>
+					</p>
 				</div>
 			</div>
 		</div>

@@ -82,3 +82,5 @@ echo <<<EMAILCONFIRMATIONFAIL
 </body>
 </html>
 EMAILCONFIRMATIONFAIL;
+
+?>
