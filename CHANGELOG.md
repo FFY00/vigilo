@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 ### Update
 - LICENSE file and LICENSE Copyrights from GNU License to MIT License
+
 ### Added
 - JetBrains - PhpStorm IDEA Integration (IDE Support)
 
