@@ -174,5 +174,5 @@ Vigilo is not related to any real hacking activity. All in-game content is ficti
 The MIT License (MIT)
 
 
-More details coming soon. **It's freedom, it's opensource!**
+More details coming soon. **It's freedom, it's [opensource](https://opensource.org/)!**
 This document was written with [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/) and [Emoji](http://www.emoji-cheat-sheet.com/)
