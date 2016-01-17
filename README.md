@@ -1,4 +1,4 @@
-# VigiloProject [![Build Status](https://travis-ci.org/vigiloproject/vigilo.svg?branch=master)](https://travis-ci.org/vigiloproject/vigilo) ![License](https://img.shields.io/badge/License-GNU_GPL-lightgrey.svg)
+# VigiloProject [![Build Status](https://travis-ci.org/vigiloproject/vigilo.svg?branch=master)](https://travis-ci.org/vigiloproject/vigilo) ![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 ###### v0.1.20 Alpha Version - Build 20160115-232338-0120
 ------------------------------------------
 :shipit: Web-Based Hacking simulation game
@@ -171,7 +171,7 @@ Want to contribute? Great! Contact us or make a pull request on our github repos
 Vigilo is not related to any real hacking activity. All in-game content is fictional and do not represent real user identification. IP addresses are randomly generated.
 
 ### License
-GNU GENERAL PUBLIC LICENSE / Version 2, June 1991
+The MIT License (MIT)
 
 
 More details coming soon. **It's freedom, it's opensource!**
