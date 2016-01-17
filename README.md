@@ -41,7 +41,6 @@ v0.1.20 Alpha Version - Build 20160113-154649-0120
 |
 |+
 ```
-
 ##### Windows Installation
  - Coming Soon!
  
@@ -65,11 +64,12 @@ Vigilo uses a number of open source projects to work correctly:
  - [x] Register Form
  - [x] Register Validation
  - [x] Email Confirmation
- - [ ] Config travis-ci
+ - [ ] Config travis-ci ([Issues #10](https://github.com/vigiloproject/vigilo/issues/10))
  - [x] Login Form
  - [ ] Login Validation
  - [ ] Main Panel
  - [ ] Real vs. Game Disk Space Math Formula
+ - [ ] HTML5 Support ([Issues #9](https://github.com/vigiloproject/vigilo/issues/9))
  - [ ] Coming Soon! (Share ideas with us)
 
 ##### Hardware
