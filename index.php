@@ -1,75 +1,10 @@
-	<!-- 
-	Yb    dP 88  dP""b8 88 88      dP"Yb  
-	 Yb  dP  88 dP   `" 88 88     dP   Yb 
-	  YbdP   88 Yb  "88 88 88  .o Yb   dP 
-	   YP    88  YboodP 88 88ood8  YbodP  
-	-->
+<!-- 
+Yb    dP 88  dP""b8 88 88      dP"Yb  
+ Yb  dP  88 dP   `" 88 88     dP   Yb 
+  YbdP   88 Yb  "88 88 88  .o Yb   dP 
+   YP    88  YboodP 88 88ood8  YbodP  
+-->
 <!DOCTYPE html>
-	
-		<!-- vigilo JavaScript Script -->
-	<script src="/libs/vigilo-js/index.js"></script>
-		<!-- If client browser doesn't support JavaScript -->
-	<noscript>
-		Sorry, but Vigilo does not work if you do not have Javascript enabled. Your browser does not support JavaScript or it is disabled!
-	</noscript>
-
-		<!-- style to insert background page and improve it in mobile devices -->
-	<style>
-		html,
-		body {
-			margin:0;
-			padding:0;
-			height:100%;
-			}
-		#wrapper {
-			min-height:100%;
-			position:relative;
-			}
-		#header {
-			}
-		#content {
-			padding-bottom:100px;   
-			/* Height of the footer element */
-			}
-		#footer {
-			width:100%;
-			height:100px;
-			position:absolute;
-			bottom:0;
-			left:0;
-			}
-		body {
-			/* Location of the image */
-			background-image: url(/res/logobackground.png);
-  
-			/* Background image is centered vertically and horizontally at all times */
-			background-position: center center;
-  
-			/* Background image doesn't tile */
-			background-repeat: no-repeat;
-  
-			/* Background image is fixed in the viewport so that it doesn't move when 
-				the content's height is greater than the image's height */
-			background-attachment: fixed;
-  
-			/* This is what makes the background image rescale based
-				on the container's size */
-			background-size: contain;
-  
-			/* Set a background color that will be displayed
-				while the background image is loading */
-			background-color: #464646;
-			}
-
-		@media only screen and (max-width: 767px) {
-		body {
-			/* The file size of this background image is 93% smaller
-				to improve page load speed on mobile internet connections */
-			background-image: url(/res/logobackground.png);
-			}
-		}
-	</style>
-
 	<html>
 		<head>
 			<title>Vigilo</title>
@@ -87,6 +22,12 @@
 			<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 			<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 			<script src="/bootstrap/js/bootstrap.min.js"></script>
+				<!-- vigilo JavaScript Script -->
+			<script src="/libs/vigilo-js/index.js"></script>
+				<!-- If client browser doesn't support JavaScript -->
+			<noscript>
+				Sorry, but Vigilo does not work if you do not have Javascript enabled. Your browser does not support JavaScript or it is disabled!
+			</noscript>
 		</head>
 	<body>
 		<div id="wrapper">
@@ -99,10 +40,10 @@
 					</div>
 					<div id="content">
 						<p style="text-align:center">
-							<?php 
-								echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
-								echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
-							?>
+						<?php 
+							echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
+							echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
+						?>
 						</p>
 					</div>
 				</div>

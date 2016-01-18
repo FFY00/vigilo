@@ -5,23 +5,23 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <?php
-//Databse Account Cerdentials
-$hostname = "";
-$username=  "";
-$password = "";
-$dbname =  "";
+	//Databse Account Cerdentials
+	$hostname = "";
+	$username=  "";
+	$password = "";
+	$dbname =  "";
 
-//do connection
-//$mysqli = new mysqli($hostname, $username, $password, $dbname);
+	//do connection
+	//$mysqli = new mysqli($hostname, $username, $password, $dbname);
 
-// We're migrating from mysqli to PDO
-$db = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	// We're migrating from mysqli to PDO
+	$db = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-//google analytics ID
-/* To activate import googleanalytics() function */
-$google_ua_id="";
+	//google analytics ID
+	/* To activate import googleanalytics() function */
+	$google_ua_id="";
 
 // return database name
 /*
@@ -36,18 +36,18 @@ if ($mysqli->connect_errno) {
 }
 */
 
-//api remote path
-$api_remotepath = ""; //Without / in the end of url
+	//api remote path
+	$api_remotepath = ""; //Without / in the end of url
 
-//play remote path
-$play_remotepath = ""; //Without / in the end of url
+	//play remote path
+	$play_remotepath = ""; //Without / in the end of url
 
-//api-check password
-$api_check_pw = "";
+	//api-check password
+	$api_check_pw = "";
 
-//recaptcha
-$captchapublickey = "";
-$captchakey = "";
+	//recaptcha
+	$captchapublickey = "";
+	$captchakey = "";
 
 // change db to name_of_db db 
 //$mysqli->select_db("name_of_db");
@@ -61,8 +61,8 @@ if ($result = $mysqli->query("SELECT DATABASE()")) {
 
 //$mysqli->close();
 
-function googleanalytics() {
-echo "<script>
+	function googleanalytics() {
+		echo "<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -72,5 +72,5 @@ echo "<script>
   ga('send', 'pageview');
 
 </script>";
-}
+	}
 ?>

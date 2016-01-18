@@ -157,4 +157,63 @@ a:after {
 #c p {
 	color: white
 }
+.box{
+        border: 1px solid #aaa; /*getting border*/
+        border-radius: 4px; /*rounded border*/
+        color: #000; /*text color*/
+    }
 
+html,
+		body {
+			margin:0;
+			padding:0;
+			height:100%;
+			}
+		#wrapper {
+			min-height:100%;
+			position:relative;
+			}
+		#header {
+			}
+		#content {
+			padding-bottom:100px;   
+			/* Height of the footer element */
+			}
+		#footer {
+			width:100%;
+			height:100px;
+			position:absolute;
+			bottom:0;
+			left:0;
+			}
+		body {
+			/* Location of the image */
+			background-image: url(logobackground.png);
+  
+			/* Background image is centered vertically and horizontally at all times */
+			background-position: center center;
+  
+			/* Background image doesn't tile */
+			background-repeat: no-repeat;
+  
+			/* Background image is fixed in the viewport so that it doesn't move when 
+				the content's height is greater than the image's height */
+			background-attachment: fixed;
+  
+			/* This is what makes the background image rescale based
+				on the container's size */
+			background-size: contain;
+  
+			/* Set a background color that will be displayed
+				while the background image is loading */
+			background-color: #464646;
+			}
+
+		@media only screen and (max-width: 767px) {
+		body {
+			/* The file size of this background image is 93% smaller
+				to improve page load speed on mobile internet connections */
+			background-image: url(logobackground.png);
+			}
+		}
+	
