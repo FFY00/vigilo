@@ -18,7 +18,7 @@ You have a lot of things to do in-game:
   - DDoS Attacks
 
 ### Version / Build
-v0.1.20 Alpha Version - Build 20160113-154649-0120
+v0.1.20 Alpha Version - Build 20160115-232338-0120
 
 ### Installation
 
