@@ -2,12 +2,18 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
-### Update
+### Updated
 - LICENSE file and LICENSE Copyrights from GNU License to MIT License
+- Configuration file
 
 ### Added
 - JetBrains - PhpStorm IDEA Integration (IDE Support)
+- Eclipse Integration (IDE Support)
+- Pixi-js WebGL Framework
+- HTML5 Support Enhancement (Half)
 
+### Deleted
+- Unused libraries
 
 ## Build 20160115-232338-0120
 ### Added
