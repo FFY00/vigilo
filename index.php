@@ -1,19 +1,19 @@
-<!-- 
-Yb    dP 88  dP""b8 88 88      dP"Yb  
- Yb  dP  88 dP   `" 88 88     dP   Yb 
-  YbdP   88 Yb  "88 88 88  .o Yb   dP 
-   YP    88  YboodP 88 88ood8  YbodP  
--->
+	<!-- 
+	Yb    dP 88  dP""b8 88 88      dP"Yb  
+	 Yb  dP  88 dP   `" 88 88     dP   Yb 
+	  YbdP   88 Yb  "88 88 88  .o Yb   dP 
+	   YP    88  YboodP 88 88ood8  YbodP  
+	-->
 <!DOCTYPE html>
 	
-	<!-- vigilo JavaScript Script -->
+		<!-- vigilo JavaScript Script -->
 	<script src="/libs/vigilo-js/index.js"></script>
-	<!-- If client browser doesn't support JavaScript -->
+		<!-- If client browser doesn't support JavaScript -->
 	<noscript>
 		Sorry, but Vigilo does not work if you do not have Javascript enabled. Your browser does not support JavaScript or it is disabled!
 	</noscript>
 
-	<!-- style to insert background page and improve it in mobile devices -->
+		<!-- style to insert background page and improve it in mobile devices -->
 	<style>
 		html,
 		body {
@@ -99,10 +99,10 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 					</div>
 					<div id="content">
 						<p style="text-align:center">
-						<?php 
-							echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
-							echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
-						?>
+							<?php 
+								echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
+								echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
+							?>
 						</p>
 					</div>
 				</div>
