@@ -4,6 +4,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
   YbdP   88 Yb  "88 88 88  .o Yb   dP 
    YP    88  YboodP 88 88ood8  YbodP  
 -->
+<?php require("config/cfg.php"); ?>
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -11,19 +12,18 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				<!-- Meta TAG's -->
 			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 			<?php 
-				require("config/cfg.php"); googleanalytics(); 
+				googleanalytics(); 
 			?>
 			<meta charset="UTF-8">
 			<link rel="icon" href="/res/favicon.ico" type="image/x-icon"/>
 			<link rel="shortcut icon" href="/res/favicon.ico" type="image/x-icon"/>
 			<link rel="shortcut icon" href="/res/favicon.ico?v=2">
-			<link rel="stylesheet" type="text/css" href="/res/style.css">
 			<link rel="stylesheet" type="text/css" href="/res/main.css">
-			<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-			<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-			<script src="/bootstrap/js/bootstrap.min.js"></script>
+			<link href="/res/bootstrap/css/bootstrap.css" rel="stylesheet">
+			<link href="/res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<script src="/res/bootstrap/js/bootstrap.min.js"></script>
 				<!-- vigilo JavaScript Script -->
-			<script src="/libs/vigilo-js/index.js"></script>
+			<script src="/res/vigilo-js/index.js"></script>
 				<!-- If client browser doesn't support JavaScript -->
 			<noscript>
 				Sorry, but Vigilo does not work if you do not have Javascript enabled. Your browser does not support JavaScript or it is disabled!
