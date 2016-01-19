@@ -40,6 +40,7 @@ if ($mysqli->connect_errno) {
 	$api_remotepath = ""; //Without / in the end of url
 
 	//play remote path
+	$root_remotepath= ""; //Without / in the end of url
 	$play_remotepath = ""; //Without / in the end of url
 
 	//api-check password

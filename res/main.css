@@ -25,8 +25,8 @@ p {
     margin-bottom: 25px;
 }
 
-.centered {
-    text-align: center;
+p.center {
+    text-align:center;
 }
 
 /* Links */

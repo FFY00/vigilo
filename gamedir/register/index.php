@@ -1,68 +1,6 @@
-<?php require_once("../../config/cfg.php"); ?>
 <!DOCTYPE HTML>
-
-<script src="/libs/vigilo-js/index.js"></script>
-<noscript>Your browser does not support JavaScript or it is disabled!</noscript>
-
-<style>
-html,
-body {
-	margin:0;
-	padding:0;
-	height:100%;
-}
-#wrapper {
-	min-height:100%;
-	position:relative;
-}
-#header {
-}
-#content {
-	padding-bottom:100px;   /* Height of the footer element */
-}
-#footer {
-	width:100%;
-	height:100px;
-	position:absolute;
-	bottom:0;
-	left:0;
-}
-body {
-  /* Location of the image */
-  background-image: url(/res/logobackground.png);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: contain;
-  
-  /* Set a background color that will be displayed
-     while the background image is loading */
-  background-color: #464646;
-}
-
-@media only screen and (max-width: 767px) {
-  body {
-    /* The file size of this background image is 93% smaller
-       to improve page load speed on mobile internet connections */
-    background-image: url(/res/logobackground.png);
-  }
-}
-</style>
-<?php
-
-?>
-<html>
-<head>
+	<html>
+		<head>
 
 	<!--[if lt IE 7]>
 		<style type="text/css">
@@ -72,42 +10,42 @@ body {
 			bottom:0; }
 		</style>
 	<![endif]-->
-	
-	<title>Registration Area</title>
-	<?php googleanalytics(); ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta charset="UTF-8">
-	<link rel="icon" href="/res/favicon.ico" type="image/x-icon"/>
-	<link rel="shortcut icon" href="/res/favicon.ico" type="image/x-icon"/>
-	<link rel="shortcut icon" href="/res/favicon.ico?v=2">
-	<link rel="stylesheet" type="text/css" href="/res/style.css">
-	<link rel="stylesheet" type="text/css" href="/res/main.css">
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="/res/smoothscroll.js"></script>
-	<script src="/res/jquery.js"></script>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
-	
-	<script src="/res/jquery-2.1.3.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/res/jquery-eu-cookie-law-popup.css"/>
-	<script src="/res/jquery-eu-cookie-law-popup.js"></script>
-		<!-- Scripts -->
-	
-	
-	</head>
-	
-	<body class="eupopup eupopup-top">
-	<div id="wrapper">
-<form name="signup" class="form-horizontal" method="post">
-<fieldset>
-<div class="container">
-<div class="row">
-<div id="header">
-	<center><h1>Registration Area</h1><br></center>
-</div>
+			<title>Registration Area</title>
+			<?php require_once("../../config/cfg.php"); ?>
+			<?php googleanalytics(); ?>
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+			<meta charset="UTF-8">
+			<?php 
+				echo '<link rel="icon" href="'.$root_remotepath.'/res/favicon.ico" type="image/x-icon"/>';
+				echo '<link rel="shortcut icon" href="'.$root_remotepath.'/res/favicon.ico">';
+				echo '<link rel="stylesheet" type="text/css" href="'.$root_remotepath.'/res/main.css">';
+				echo '<link href="'.$root_remotepath.'/res/bootstrap/css/bootstrap.css" rel="stylesheet">';
+				echo '<link href="'.$root_remotepath.'/res/bootstrap/css/bootstrap.min.css" rel="stylesheet">';
+				echo '<script src="'.$root_remotepath.'/res/bootstrap/js/bootstrap.min.js"></script>';
+				echo '<script src="'.$root_remotepath.'/res/smoothscroll/smoothscroll.js"></script>';
+				echo '<script src="'.$root_remotepath.'/res/jquery/jquery.js"></script>';
+				echo '<script src="'.$root_remotepath.'/res/jquery/jquery-2.1.3.min.js"></script>';
+				echo '<link rel="stylesheet" type="text/css" href="'.$root_remotepath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.css"/>';
+				echo '<script src="'.$root_remotepath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.js"></script>';
+				echo '<script src="'.$root_remotepath.'/res/vigilo-js/index.js"></script>';
+			 ?>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			<script src='https://www.google.com/recaptcha/api.js'></script>
+			<noscript>
+				Your browser does not support JavaScript or it is disabled!
+			</noscript>
+		</head>
+		<body class="eupopup eupopup-top">
+			<div id="wrapper">
+				<form name="signup" class="form-horizontal" method="post">
+					<fieldset>
+						<div class="container">
+							<div class="row">
+								<div id="header">
+									<center>
+										<h1>Registration Area</h1><br>
+									</center>
+								</div>
 <div id="content">
 <!-- Form Name -->
 
