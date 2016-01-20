@@ -61,15 +61,6 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				<!-- vigilo JavaScript Script -->
 			<script src="/res/vigilo-js/index.js"></script>
 
-				<!-- Printing and PDF exports -->
-			<script>
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = window.location.search.match( /print-pdf/gi ) ? 'res/reveal-js/css/print/pdf.css' : 'res/reveal-js/css/print/paper.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			</script>
-
 			<?php googleanalytics($google_ua_id); ?>
 				<!-- If client browser doesn't support JavaScript -->
 			<noscript>
