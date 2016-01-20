@@ -21,31 +21,7 @@ You have a lot of things to do in-game:
 v0.1.20 Alpha Version - Build 20160115-232338-0120
 
 ### Installation
-
-##### MySQL Tables
-```
-+ database1
-|--+
-|  |--+ users
-|  |  |
-|  |  |--+ username
-|  |  |--+ password
-|  |  |--+ gameip
-|  |  |--+ ID
-|  |  |--+ email
-|  |  |--+ joindate
-|  |  |--+ confirmed
-|  |  |--+ confirmkey
-|  |  |--+ bankNumber
-|  |+
-|
-|+
-```
-##### Windows Installation
- - Coming Soon!
- 
-##### Linux Installation
- - Coming Soon!
+See the wiki page, [here](https://github.com/vigiloproject/vigilo/wiki/Installation) .
 
 ### Plugins
 Vigilo is currently extended with the following plugins:
