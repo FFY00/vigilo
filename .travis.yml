@@ -8,6 +8,10 @@ php:
   
 before_script:
   - composer install
+
+pyrus install http://phptal.org/latest.tar.gz
+pear install pear/PHP_CodeSniffer
+
 before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
 
 env:
