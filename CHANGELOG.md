@@ -5,12 +5,15 @@ All notable changes to this project will be documented in this file.
 ### Updated
 - LICENSE file and LICENSE Copyrights from GNU License to MIT License
 - Configuration file
+- Update vigilo-js library
+- Update vigilolibrary.php function (googleanalytics())
+- Update jQuery Library
 
 ### Added
 - JetBrains - PhpStorm IDEA Integration (IDE Support)
 - Eclipse Integration (IDE Support)
-- Pixi-js WebGL Framework
-- HTML5 Support Enhancement (Half)
+- HTML5 Support Enhancement
+- Merge smoothscroll and antipub-js in vigilo-js
 
 ### Deleted
 - Unused libraries
