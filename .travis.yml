@@ -6,6 +6,12 @@ php:
   - '7.0'
   - nightly
   
+env:
+  - SYMFONY_VERSION="2.0.*" DB=mysql
+  - SYMFONY_VERSION="dev-master" DB=mysql
+  - DB=mysql
+  - DB=pgsql
+
 before_script:
   - composer install
   - pyrus install http://phptal.org/latest.tar.gz
@@ -14,11 +20,5 @@ before_script:
   - if [[ "$DB" == "pgsql" ]]; then psql -c "DROP DATABASE IF EXISTS hello_world_test;" -U postgres; fi
   - if [[ "$DB" == "pgsql" ]]; then psql -c "create database hello_world_test;" -U postgres; fi
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
-
-env:
-  - SYMFONY_VERSION="2.0.*" DB=mysql
-  - SYMFONY_VERSION="dev-master" DB=mysql
-  - DB=mysql
-  - DB=pgsql
 
 script: php mageekguy.atoum.phar
