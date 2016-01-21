@@ -21,8 +21,4 @@ before_script:
   - if [[ "$DB" == "pgsql" ]]; then psql -c "create database hello_world_test;" -U postgres; fi
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
 
-install:
-   - composer require symfony/framework-bundle:${SYMFONY_VERSION}
-
 script: php mageekguy.atoum.phar
-
