@@ -18,6 +18,8 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 
 		<!--[if lt IE 9]>
 			<script src="res/reveal-js/lib/js/html5shiv.js"></script>
+			<script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
 			<title>Vigilo</title>
@@ -41,6 +43,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 
 				<!-- CSS Style -->
 			<link rel="stylesheet" type="text/css" href="/res/style.css">
+			<link rel="stylesheet" type="text/css" href="/res/background.css">
 
 				<!-- jquery -->
 			<script src="/res/jquery/jquery-1.12.0.min.js"></script>
