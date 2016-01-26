@@ -8,12 +8,15 @@ All notable changes to this project will be documented in this file.
 - Update vigilo-js library
 - Update vigilolibrary.php function (googleanalytics())
 - Update jQuery Library
+- Update Style file
+- Update travis-ci file - Email Notification Added
 
 ### Added
 - JetBrains - PhpStorm IDEA Integration (IDE Support)
 - Eclipse Integration (IDE Support)
 - HTML5 Support Enhancement
 - Merge smoothscroll and antipub-js in vigilo-js
+- composer.json for travis-ci work fine
 
 ### Deleted
 - Unused libraries
