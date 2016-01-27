@@ -33,8 +33,14 @@ Vigilo uses a number of open source projects to work correctly:
 * Twitter Bootstrap
 * jQuery
 * jquery-eu-cookie-law-popup
+* jquery-smoothscroll
 * reveal-js
 * atoum
+* font-awesome
+* glyphicons
+* normalize
+* famfamfam icons
+* fatcow icons
 
 ### TODO
  - [x] Register Form
