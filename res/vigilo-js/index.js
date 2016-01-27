@@ -137,3 +137,7 @@ function scrollToTop() {
 }
 
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});

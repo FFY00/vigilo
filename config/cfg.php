@@ -61,4 +61,21 @@ if ($result = $mysqli->query("SELECT DATABASE()")) {
 }*/
 
 //$mysqli->close();
+
+//Facebook Social Button
+$facebook_page=0;
+$facebook_link="";
+
+//Twitter Social Button
+$twitter_page=0;
+$twitter_link="";
+
+//Google+ Social Button
+$googleplus_page=0;
+$googleplus_link="";
+
+//Email Social Button
+$email_page=0;
+$email_link="";
+
 ?>
