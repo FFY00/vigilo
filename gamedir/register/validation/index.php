@@ -163,7 +163,7 @@ USER;
 }
 
 $query = "SELECT * FROM users WHERE email='" . $email . "'";
-if(!($usr == NULL)){
+if(!($email == NULL)){
 if(($db->query($query)->fetchColumn()) > 0){
     echo <<<EMAIL
 <div id="header">
@@ -338,6 +338,7 @@ try {
 catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
+    exit;
     }
 
 $subject = "Vigilo: Email Confirmation";
