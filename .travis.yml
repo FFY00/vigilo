@@ -114,7 +114,14 @@ matrix:
       env: DB=pgsql POSTGRES=9.4
       addons:
         postgresql: 9.4
-
+    - php: 5.4
+      env: DB=mariadb
+    - php: 5.5
+      env: DB=mariadb
+    - php: 5.6
+      env: DB=mariadb
+    
+    
   allow_failures:
     - php: 
       - nightly
