@@ -1,0 +1,1 @@
+We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.
