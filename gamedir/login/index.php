@@ -7,6 +7,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 <!DOCTYPE html>
 	<html lang="en">
 		<head>
+
 		<!--[if IE]>
 			<meta content="true" name="MSSmartTagsPreventParsing">
     		<meta content="false" http-equiv="imagetoolbar">
@@ -29,7 +30,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
 		<![endif]-->
 	
-			<title>Login Area</title>
+			<title>Vigilo • Login</title>
 				<!-- Meta TAG's -->
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 				<!-- Apple Phones Optimization -->
@@ -69,6 +70,8 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 					<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 					<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+					<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
 					<script src="'.$root_remotepath.'/res/vigilo-js/index.js"></script>
 				';
 
@@ -99,19 +102,19 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
     	    								<div class="col-xs-4 col-sm-2">
 		        								<a href="#" class="btn btn-lg btn-block omb_btn-facebook">
 			        								<i class="fa fa-facebook visible-xs"></i>
-			        								<span class="hidden-xs">Facebook</span>
+			        								<span class="hidden-xs"><i class="fa fa-facebook"></i> Facebook</span>
 		        								</a>
 	        								</div>
         									<div class="col-xs-4 col-sm-2">
 		        								<a href="#" class="btn btn-lg btn-block omb_btn-twitter">
 			        								<i class="fa fa-twitter visible-xs"></i>
-			       			 						<span class="hidden-xs">Twitter</span>
+			       			 						<span class="hidden-xs"><i class="fa fa-twitter"></i> Twitter</span>
 		        								</a>
 	        								</div>	
         									<div class="col-xs-4 col-sm-2">
 		       						 			<a href="#" class="btn btn-lg btn-block omb_btn-google">
 			        								<i class="fa fa-google-plus visible-xs"></i>
-			        								<span class="hidden-xs">Google+</span>
+			        								<span class="hidden-xs"><i class="fa fa-google-plus"></i> Google+</span>
 		        								</a>
 	        								</div>	
 										</div>
