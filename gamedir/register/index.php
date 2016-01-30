@@ -142,22 +142,10 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
                     									<div class="g-recaptcha" data-sitekey=<?php echo '"' . $captchapublickey . '"'; ?>></div></br>
                     								</div>
                     								<br/>
-													<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+													<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 												</form>
 											</div>
     									</div>
-    									<div class="row omb_row-sm-offset-3">
-    										<div class="col-xs-12 col-sm-3">
-												<label class="checkbox">
-													<input name="checkbox" id="checkbox-remember" type="checkbox" value="1" checked>Remember Me
-												</label>
-											</div>
-											<div class="col-xs-12 col-sm-3">
-												<p class="omb_forgotPwd">
-													<a href="/login/forgot/">Forgot password?</a>
-												</p>
-											</div>	
-										</div>
     								</div>
 								</div>
 							</div>
