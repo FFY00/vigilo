@@ -29,7 +29,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
 		<![endif]-->
 
-			<title>Page Redirection</title>
+			<title>Vigilo • Redirection</title>
 				<!-- Meta TAG's -->
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 				<!-- Apple Phones Optimization -->

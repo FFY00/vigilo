@@ -37,4 +37,28 @@ function googleanalytics($id) {
 
 </script>";
     }
+
+function html5_ie() {
+  echo '<!--[if IE]>
+      <meta content="true" name="MSSmartTagsPreventParsing">
+        <meta content="false" http-equiv="imagetoolbar">
+      <![endif]-->
+
+    <!--[if lt IE 7]>
+      <style type="text/css">
+        #wrapper { height:100%; }
+        #footer {
+        position:fixed;
+        bottom:0; }
+      </style>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="res/reveal-js/lib/js/html5shiv.js"></script>
+      <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
+    <![endif]-->';
+}
 ?>
