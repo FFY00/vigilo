@@ -92,7 +92,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							<div class="row">
 								<div id="header">
 									<div id="center">
-										<h3 class="omb_authTitle">Sign up or <a href="/register/">Login</a></h3>
+										<h3 class="omb_authTitle">Sign up or <a href="/login/">Login</a></h3>
 										<br />
 									</div>
 								</div>
@@ -126,14 +126,27 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 										</div>
 										<div class="row omb_row-sm-offset-3">
 											<div class="col-xs-12 col-sm-6">	
-			    								<form role="form" class="omb_loginForm" action="/login/validation/" autocomplete="off" method="POST">
+			    								<form name="signup" role="form" class="omb_loginForm" action="/register/validation/" autocomplete="off" method="POST">
 													<div class="form-group has-feedback has-feedback-left">
-														<input type="text" class="form-control" name="usr" placeholder="username or email address">
+														<input type="text" class="form-control" name="usr" id="usr" placeholder="username">
 														<i class="glyphicon glyphicon-user form-control-feedback"></i>
 													</div>
 													<span class="help-block"></span>
 													<div class="form-group has-feedback has-feedback-left">
-														<input  id="passwd" name="passwd" type="password" class="form-control" placeholder="Password">
+														<input type="text" class="form-control" name="email" id="email" placeholder="email address">
+														<i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+													</div>
+													<div class="form-group has-feedback has-feedback-left">
+														<input type="text" class="form-control" name="confemail" id="confemail" placeholder="confirm email address">
+														<i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+													</div>
+													<span class="help-block"></span>
+													<div class="form-group has-feedback has-feedback-left">
+														<input  id="passwd" name="passwd" type="password" class="form-control" placeholder="password">
+														<i class="glyphicon glyphicon-lock form-control-feedback"></i>
+													</div>
+													<div class="form-group has-feedback has-feedback-left">
+														<input  id="confpasswd" name="confpasswd" type="password" class="form-control" placeholder="confirm password">
 														<i class="glyphicon glyphicon-lock form-control-feedback"></i>
 													</div>
 													<span class="help-block"></span>
@@ -144,6 +157,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
                     								<br/>
 													<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 												</form>
+												<br/>
 											</div>
     									</div>
     								</div>
@@ -183,86 +197,3 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			</div>
 		</body>
 	</html>
-
-
-
-
-		<body class="eupopup eupopup-top">
-			<div id="wrapper">
-				<form name="signup" class="form-horizontal" method="post">
-					<fieldset>
-						<div class="container">
-							<div class="row">
-								<div id="header">
-									<center>
-										<h1>Registration Area</h1><br>
-									</center>
-								</div>
-<div id="content">
-<!-- Form Name -->
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput"></label>  
-  <div class="col-md-4">
-  <input id="usr" name="usr" type="text" placeholder="username" class="form-control input-md"> 
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput"></label>  
-  <div class="col-md-4">
-  <input id="email" name="email" type="email" placeholder="email" class="form-control input-md"> 
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput"></label>  
-  <div class="col-md-4">
-  <input id="confemail" name="confemail" type="email" placeholder="confirm email" class="form-control input-md"> 
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput"></label>  
-  <div class="col-md-4">
-  <input id="passwd" name="passwd" type="password" placeholder="password" class="form-control input-md">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput"></label>  
-  <div class="col-md-4">
-  <input id="confpasswd" name="confpasswd" type="password" placeholder="confirm password" class="form-control input-md">
-  </div>
-</div>
-
-<center><div class="g-recaptcha" data-sitekey=<?php echo '"' . $captchapublickey . '"'; ?>></div></br></center>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="button1id"></label>
-  <div class="col-md-8">
-	<button id="btregister" class="btn btn-success" formaction="/register/validation/">Register</button>
-	<span><a href="/login">I already have an account!</a></span>
-  </div>
-</div>
-</div>
-</fieldset>
-</form>
-
-<div id="footer">
-	<center>
-		<h6>
-			<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-		</h6>
-	</center>
-</div>
-</div>
-</body>
-
-<?php $mysqli->close(); ?>
