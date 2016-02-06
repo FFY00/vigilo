@@ -7,82 +7,11 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--[if IE]>
-			<meta content="true" name="MSSmartTagsPreventParsing">
-    		<meta content="false" http-equiv="imagetoolbar">
-    	<![endif]-->
+<?php 
+			require_once("../../../config/cfg.php"); 
+			require_once("../../../res/vigilolibrary.php");
 
-		<!--[if lt IE 7]>
-			<style type="text/css">
-				#wrapper { height:100%; }
-				#footer {
-				position:fixed;
-				bottom:0; }
-			</style>
-		<![endif]-->
-
-		<!--[if lt IE 9]>
-			<script src="res/reveal-js/lib/js/html5shiv.js"></script>
-			<script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
-		<![endif]-->
-
-	<title>Vigilo • ...</title>
-		<!-- Meta TAG's -->
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-				<!-- Apple Phones Optimization -->
-			<meta name="apple-mobile-web-app-capable" content="yes">
-			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-			<meta name="description" content="Web-Based Hacking simulation game">
-			<meta content="hacking, hack, vigilo, vigiloproject, game, simulator, web-based game" name="keywords">
-			<meta name="author" content="Vigilo">
-			<meta name="referrer" content="origin">
-			<meta charset="UTF-8">
-
-			<?php 
-				require_once("../../../config/cfg.php"); 
-				require_once("../../../res/vigilolibrary.php");
-
-				echo '
-					<link rel="icon" href="'.$root_remotepath.'/res/favicon.ico" type="image/x-icon"/>
-					<link rel="shortcut icon" href="'.$root_remotepath.'/res/favicon.ico" type="image/x-icon"/>
-					<link rel="shortcut icon" href="'.$root_remotepath.'/res/favicon.ico">
-
-					<link rel="stylesheet" type="text/css" href="'.$root_remotepath.'/res/style.css">
-					<!--<link rel="stylesheet" type="text/css" href="'.$root_remotepath.'/res/background.css">-->
-
-					<script src="'.$root_remotepath.'/res/jquery/jquery-1.12.0.min.js"></script>
-					<!-- <script src="'.$root_remotepath.'/res/jquery/jquery-2.2.0.min.js"></script> -->
-
-					<script src="https://www.google.com/recaptcha/api.js"></script>
-
-					<link rel="stylesheet" type="text/css" href="'.$root_remotepath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.css"/>
-					<script src="'.$root_remotepath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.js"></script>
-
-					<link href="'.$root_remotepath.'/res/bootstrap/css/bootstrap.css" rel="stylesheet">
-					<link href="'.$root_remotepath.'/res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-					<link type="text/css" href="'.$root_remotepath.'/res/normalize/normalize.css" rel="stylesheet">
-					<script src="'.$root_remotepath.'/res/bootstrap/js/bootstrap.min.js"></script>
-					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-					<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-					<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-					<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-					<script src="'.$root_remotepath.'/res/vigilo-js/index.js"></script>
-				';
-
-				googleanalytics($google_ua_id);
-			?>
-
-			<noscript>
-				<div class="alert alert-danger">
-            		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            		<span><strong>Notice: </strong> Sorry, but Vigilo does not work if you do not have Javascript enabled. Your browser does not support JavaScript or it is disabled! <a href="http://enable-javascript.com/" class="alert-link">Please Enable JavaScript Safley</a>.</span>
-        		</div>
-			</noscript>
+			head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -137,44 +66,19 @@ $captcha_response_json_error_codes = $json_parse_array->{'error-codes'};
 if ($captcha_response_json_success == "false"){
 	echo <<<CAPTCHA
 <div id="header">
-	<center><h1>Wrong captcha, try again!</h1><br>
+	<div id="center"><h1>Wrong captcha, try again!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 CAPTCHA;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -184,47 +88,20 @@ CAPTCHA;
 if(!($email == $confemail))
 {
 	echo <<<EMAIL
-<div class="container">
-<div class="row">
 <div id="header">
-	<center><h1>Your email confirmation is wrong!</h1><br>
+	<div id="center"><h1>Your email confirmation is wrong!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 EMAIL;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -236,44 +113,19 @@ if(!($passwd == $confpasswd))
 {
 	echo <<<PASSWORD
 <div id="header">
-	<center><h1>Your password confirmation is wrong!</h1><br>
+	<div id="center"><h1>Your password confirmation is wrong!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 PASSWORD;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -285,44 +137,19 @@ if(!($usr == NULL)){
 if(($db->query($query)->fetchColumn()) > 0){
     echo <<<USER
 <div id="header">
-	<center><h1>This username is already exists!</h1><br>
+	<div id="center"><h1>This username is already exists!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 USER;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -335,44 +162,19 @@ if(!($email == NULL)){
 if(($db->query($query)->fetchColumn()) > 0){
     echo <<<EMAIL
 <div id="header">
-	<center><h1>This email is already exists!</h1><br>
+	<div id="center"><h1>This email is already exists!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 EMAIL;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -384,44 +186,19 @@ if($usr == NULL)
 {
 	echo <<<WRONG
 <div id="header">
-	<center><h1>Wrong username!</h1><br>
+	<div id="center"><h1>Wrong username!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 WRONG;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -432,44 +209,19 @@ if($passwd == NULL)
 {
 echo <<<BLANK
 <div id="header">
-	<center><h1>Blank password!</h1><br>
+	<div id="center"><h1>Blank password!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 BLANK;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -480,44 +232,19 @@ if(strlen($passwd) < 8)
 {
 echo <<<MIN
 <div id="header">
-	<center><h1>Insert minimum 8 characters in your password!</h1><br>
+	<div id="center"><h1>Insert minimum 8 characters in your password!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 MIN;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -528,44 +255,19 @@ if($email == NULL)
 {
 	echo <<<EMAIL
 <div id="header">
-<center><h1>Wrong email!</h1><br>
+	<div id="center"><h1>Wrong email!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 EMAIL;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -576,44 +278,19 @@ if($username == $email)
 {
 	echo <<<UE
 <div id="header">
-<center><h1>We dont allow username equal email!</h1><br>
+	<div id="center"><h1>We dont allow username equal email!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 UE;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -624,44 +301,19 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 {
 	echo <<<EMAIL
 <div id="header">
-<center><h1>Invalid email address!</h1><br>
+	<div id="center"><h1>Invalid email address!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/register">
 </div>
 </div>
 EMAIL;
-	echo '				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />';
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-            					echo '
-							</div>
-						</h6>
-					</div>
-				</div>
+footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+	echo '
 			</div>
 		</body>
 	</html>';
@@ -745,44 +397,17 @@ $db = null;
 
 echo <<<REGISTERED
 <div id="header">
-	<center><h1>User successfully registered!</h1><br>
+	<div id="center"><h1>User successfully registered!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>Now you need to confirm your email. To access your account go to login page in this <a href="/login">link</a>. NOTE: Check SPAM email Box with email named: noreply@vigilo.cf !</p>
-</center>
+</div>
 </div>
 </div>
 REGISTERED;
 ?>
-				<div id="footer">
-					<div id="center">
-						<h6>
-							<b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
-							<div class="text-center center-block">
-            					<br />
-            					<?php
-            					if($facebook_page==1)
-            					{
-            						echo '<a href="'.$facebook_link.'"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>';
-            					}
-            					if($twitter_page==1)
-            					{
-            						echo '<a href="'.$twitter_link.'"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>';
-            					}
-            					if($googleplus_page==1)
-            					{
-            						echo '<a href="'.$googleplus_link.'"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>';
-            					}
-            					if($email_page==1)
-            					{
-            						echo '<a href="mailto:'.$email_link.'"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>';
-            					}
-	            				?>
-							</div>
-						</h6>
-					</div>
-				</div>
+				<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
 			</div>
 		</body>
 	</html>
