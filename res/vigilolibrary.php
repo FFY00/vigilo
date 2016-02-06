@@ -26,6 +26,7 @@ function emailkey() {
 }
 
 function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NULL) {
+  $description="Web-Based Hacking simulation game";
   echo '
       <!--[if IE]>
       <meta content="true" name="MSSmartTagsPreventParsing">
@@ -51,18 +52,43 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
     <![endif]-->
 
-      <title>Vigilo • '.$title.'</title>
+      <title>Vigilo &bull; '.$title.'</title>
         <!-- Meta TAG'."'".'s -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, shrink-to-fit=no">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <!-- Apple Phones Optimization -->
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-      <meta name="description" content="Web-Based Hacking simulation game">
+      <meta name="description" content="'.$description.'">
       <meta content="hacking, hack, vigilo, vigiloproject, game, simulator, web-based game" name="keywords">
-      <meta name="author" content="Vigilo">
+      <meta name="author" content="VigiloProject">
+      <meta name="reply-to" content="vigiloproject@gmail.com">
       <meta name="referrer" content="origin">
-      <meta charset="UTF-8">';
+      <meta name="generator" content="VigiloLibrary"/>
+      <meta name="robots" content="index, noodp, follow"/>
+      <meta name="googlebot" content="index, noodp, follow" >
+      <meta name="Slurp" content="index, noodp, follow, noydir">
+      <meta name="bingbot" content="index, noodp, follow" >
+      <meta name="fragment" content="!" >
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta http-equiv="content-language" content="en_US">
+      <meta charset="UTF-8">
+
+      <meta name="distribution" content="web">
+      <link rel="profile" href="http://gmpg.org/xfn/11">
+      <meta property="og:locale" content="en_US"/>
+      <meta property="og:locale:alternate" content="en" />
+      <meta property="og:locale:alternate" content="en_GB" />
+      <meta property="og:type" content="website"/>
+      <meta property="og:title" content="Vigilo &bull; '.$title.'"/>
+      <meta property="og:description" content="'.$description.'"/>
+      <meta property="og:url" content="'.$rootpath.'"/>
+      <meta property="og:site_name" content="Vigilo"/>
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:description" content="'.$description.'"/>
+      <meta name="twitter:title" content="Vigilo &bull; '.$title.'"/>
+
+      <meta name="google" content="nositelinkssearchbox" />';
 
       if(!($redirect==NULL)) {
         echo '<meta http-equiv="refresh" content="3;url='.$redirect.'">';
