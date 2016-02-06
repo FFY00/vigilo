@@ -21,7 +21,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 								<div id="header">
 									<div id="center">
 										<h3 class="omb_authTitle">Sign up or <a href="/login/">Login</a></h3>
-										<br />
+										<br>
 									</div>
 								</div>
 								<div id="content">
@@ -54,12 +54,11 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 										</div>
 										<div class="row omb_row-sm-offset-3">
 											<div class="col-xs-12 col-sm-6">	
-			    								<form name="signup" role="form" class="omb_loginForm" action="/register/validation/" autocomplete="off" method="POST">
+			    								<form name="signup" id="signup" role="form" class="omb_loginForm" action="/register/validation/" autocomplete="off" method="POST">
 													<div class="form-group has-feedback has-feedback-left">
 														<input type="text" class="form-control" name="usr" id="usr" placeholder="username">
 														<i class="glyphicon glyphicon-user form-control-feedback"></i>
 													</div>
-													<span class="help-block"></span>
 													<div class="form-group has-feedback has-feedback-left">
 														<input type="text" class="form-control" name="email" id="email" placeholder="email address">
 														<i class="glyphicon glyphicon-envelope form-control-feedback"></i>
@@ -68,7 +67,6 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 														<input type="text" class="form-control" name="confemail" id="confemail" placeholder="confirm email address">
 														<i class="glyphicon glyphicon-envelope form-control-feedback"></i>
 													</div>
-													<span class="help-block"></span>
 													<div class="form-group has-feedback has-feedback-left">
 														<input  id="passwd" name="passwd" type="password" class="form-control" placeholder="password">
 														<i class="glyphicon glyphicon-lock form-control-feedback"></i>
@@ -77,10 +75,9 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 														<input  id="confpasswd" name="confpasswd" type="password" class="form-control" placeholder="confirm password">
 														<i class="glyphicon glyphicon-lock form-control-feedback"></i>
 													</div>
-													<span class="help-block"></span>
 													<br/>
 													<div id="center">
-                    									<div class="g-recaptcha" data-sitekey=<?php echo '"' . $captchapublickey . '"'; ?>></div></br>
+                    									<div class="g-recaptcha" data-sitekey=<?php echo '"' . $captchapublickey . '"'; ?>></div><br>
                     								</div>
                     								<br/>
 													<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
