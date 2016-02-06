@@ -53,7 +53,7 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
 
       <title>Vigilo • '.$title.'</title>
         <!-- Meta TAG'."'".'s -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui", shrink-to-fit="no">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, shrink-to-fit=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Apple Phones Optimization -->
       <meta name="apple-mobile-web-app-capable" content="yes">
