@@ -121,9 +121,13 @@ if(!($redirect==NULL)) {
       ';
 }
 
-function footer_default($facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link) {
+function footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link) {
   echo '<div id="footer">
-          <div id="center">
+          <div id="center">';
+  if($bg==1) {
+        echo '<img alt="" height="100" src="https://vigilo.cf/res/logobackground.png" width="100" />';
+      }
+  echo '
             <h6>
               <b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
               <div class="text-center center-block">';
