@@ -41,6 +41,15 @@ Vigilo uses a number of open source projects to work correctly:
 * normalize
 * famfamfam icons
 * fatcow icons
+* w3schools
+
+Vigilo use many free services to work correctly, like:
+* x10hosting - Web Hosting
+* cloudflare - DDoS Web Hosting Protector
+* maxcdn - CDN by MaxCDN
+* freenom - TLD Service (.cf domain)
+* github - Sourcecode Host Service
+* recaptcha - Captcha Service by Google
 
 ### TODO
  - [x] Register Form
