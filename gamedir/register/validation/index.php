@@ -5,7 +5,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
 <?php 
 			require_once("../../../config/cfg.php"); 
@@ -134,7 +134,7 @@ footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_li
 
 $query = "SELECT * FROM users WHERE username='" . $usr . "'";
 if(!($usr == NULL)){
-if(($db->query($query)->fetchColumn()) > 0){
+if(($db->query($query)->rowCount()) > 0){
     echo <<<USER
 <div id="header">
 	<div id="center"><h1>This username is already exists!</h1><br></div>
@@ -159,7 +159,7 @@ footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_li
 
 $query = "SELECT * FROM users WHERE email='" . $email . "'";
 if(!($email == NULL)){
-if(($db->query($query)->fetchColumn()) > 0){
+if(($db->query($query)->rowCount()) > 0){
     echo <<<EMAIL
 <div id="header">
 	<div id="center"><h1>This email is already exists!</h1><br></div>
@@ -340,7 +340,7 @@ $random_ip = rand(1, 255).".".rand(1, 255).".".rand(1, 255).".".rand(1, 255);
 
 $query = "SELECT * FROM users WHERE gameip='" . $random_ip . "'";
 
-	if(($db->query($query)->fetchColumn()) > 0)
+	if(($db->query($query)->rowCount()) > 0)
 	{
 		$ipv4 = "1";
 	}

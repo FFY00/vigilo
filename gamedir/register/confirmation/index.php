@@ -21,40 +21,36 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 $confirm_email_key=$_GET["key"];
 
 $query = "SELECT * FROM users WHERE confirmkey='" . $confirm_email_key . "'";
-if(($db->query($query)->fetchColumn()) > 0){
+if(($db->query($query)->rowCount()) > 0){
     echo <<<EMAILCONFIRMATION
 <div id="header">
-	<center><h1>Email confirmed!</h1><br>
+	<div id="center"><h1>Email confirmed!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/login">
 </div>
 </div>
 EMAILCONFIRMATION;
 
-try {
 	$sql = "UPDATE users SET confirmkey='". $confirm_email_key . "x" ."', confirmed='1'
 WHERE confirmkey='". $confirm_email_key ."'; ";
 	$db->exec($sql);
-	}
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
+	exit;
+}
 
 	
 echo <<<EMAILCONFIRMATIONFAIL
 <div id="header">
-	<center><h1>Email confirmation key not founded!</h1><br>
+	<div id="center"><h1>Email confirmation key not founded!</h1><br></div>
 </div>
 <div id="content">
-<center>
+<div id="center">
 <p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</center>
+</div>
 <script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
 <meta http-equiv="refresh" content="5;url=/login">
 </div>
