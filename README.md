@@ -65,6 +65,7 @@ Vigilo use many free services to work correctly, like:
  - [ ] AJAX Integration ([Issues #14](https://github.com/vigiloproject/vigilo/issues/14))
  - [ ] Coming Soon! (Share ideas with us)
 
+Visit our mindmap [here](http://repository.vigilo.cf/mindmap/).
 
 ### Contributors
  - **Ricardo Subtil** - General Developer
