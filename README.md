@@ -3,7 +3,7 @@
 ------------------------------------------
 :shipit: Web-Based Hacking simulation game
 
-Vigilo is a web-based hacking simulation game, where you play the role of a hacker seeking for money and power. Now, this will work in PHP v5.4, v5.5, v5.6, v7.0 and nightly PHP version.
+Vigilo is a web-based hacking simulation game, fully opensource, where you play the role of a hacker seeking for money and power. Now, this will work in PHP v5.4, v5.5, v5.6, v7.0 and nightly PHP version.
 
 ### Features
 You have a lot of things to do in-game:
