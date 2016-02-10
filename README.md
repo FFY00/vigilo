@@ -70,6 +70,7 @@ Visit our mindmap [here](http://repository.vigilo.cf/mindmap/).
 ### Contributors
  - **Ricardo Subtil** - General Developer
  - **Luís Ferreira** - General Developer
+ - **Alexandre Ferreira** - Team Member
  - **Francisco Jordão** - Contributor
  - **Filipe Laíns** - Security Researcher
  - **.** - Designer
