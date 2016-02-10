@@ -42,6 +42,12 @@ Vigilo uses a number of open source projects to work correctly:
 * famfamfam icons
 * fatcow icons
 * w3schools
+* w3schools-css
+* respond
+* ogp (The Open Graph protocol)
+* bootsnipp
+* html5shiv
+* html5shiv-printshiv
 
 Vigilo use many free services to work correctly, like:
 * x10hosting - Web Hosting
