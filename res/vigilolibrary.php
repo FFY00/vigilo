@@ -45,11 +45,10 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
     <![endif]-->
 
     <!--[if lt IE 9]>
-      <script src="res/reveal-js/lib/js/html5shiv.js"></script>
-      <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> 
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.src.js"></script>
     <![endif]-->
 
       <title>Vigilo &bull; '.$title.'</title>
@@ -74,6 +73,20 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
       <meta http-equiv="content-language" content="en_US">
       <meta charset="UTF-8">
 
+      <link rel="apple-touch-icon" sizes="57x57" href="">
+        <link rel="apple-touch-icon" sizes="60x60" href="">
+        <link rel="apple-touch-icon" sizes="72x72" href="">
+        <link rel="apple-touch-icon" sizes="76x76" href="">
+        <link rel="apple-touch-icon" sizes="114x114" href="">
+        <link rel="apple-touch-icon" sizes="120x120" href="">
+        <link rel="apple-touch-icon" sizes="144x144" href="">
+        <link rel="apple-touch-icon" sizes="152x152" href="">
+        <link rel="apple-touch-icon" sizes="180x180" href="">
+        <link rel="icon" type="image/png" sizes="192x192"  href="">
+        <link rel="icon" type="image/png" sizes="32x32" href="">
+        <link rel="icon" type="image/png" sizes="96x96" href="">
+        <link rel="icon" type="image/png" sizes="16x16" href="">
+
       <meta name="distribution" content="web">
       <link rel="profile" href="http://gmpg.org/xfn/11">
       <meta property="og:locale" content="en_US"/>
@@ -83,6 +96,7 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
       <meta property="og:title" content="Vigilo &bull; '.$title.'"/>
       <meta property="og:description" content="'.$description.'"/>
       <meta property="og:url" content="'.$rootpath.'"/>
+      <link rel="canonical" href="'.$rootpath.'" />
       <meta property="og:site_name" content="Vigilo"/>
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:description" content="'.$description.'"/>
@@ -105,23 +119,19 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
         echo '<link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/background.css">';
       }
       echo '
-      <script src="'.$rootpath.'/res/jquery/jquery-1.12.0.min.js"></script>
-      <!-- <script src="'.$rootpath.'/res/jquery/jquery-2.2.0.min.js"></script> -->
+      <script src="//oss.maxcdn.com/jquery/2.2.0/jquery.js"></script>
 
-      <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script src="//www.google.com/recaptcha/api.js"></script>
 
       <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.css"/>
       <script src="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.js"></script>
 
-      <link href="'.$rootpath.'/res/bootstrap/css/bootstrap.css" rel="stylesheet">
-      <link href="'.$rootpath.'/res/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <link type="text/css" href="'.$rootpath.'/res/normalize/normalize.css" rel="stylesheet">
-      <script src="'.$rootpath.'/res/bootstrap/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-      <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+      <link type="text/css" href="//oss.maxcdn.com/normalize/3.0.3/normalize.css" rel="stylesheet">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+      <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
 
       <script src="'.$rootpath.'/res/vigilo-js/index.js"></script>
       '."

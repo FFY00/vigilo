@@ -375,7 +375,7 @@ $subject = "Vigilo: Email Confirmation";
 $msg= 'Hi '. $usr .',
 
 Welcome to vigilo! We need you to confirm this email address in order to get started with your vigilo account. Email confirmation is simple and fast, just visit the below link to complete this process.
-https://vigilo.cf/register/confirmation/?key='. $generated_key .'
+https://play.vigilo.cf/register/confirmation/?key='. $generated_key .'
 
 Sincerely,
 The Vigilo Team';
