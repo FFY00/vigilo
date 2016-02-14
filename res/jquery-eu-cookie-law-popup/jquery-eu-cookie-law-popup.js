@@ -28,7 +28,7 @@ $.fn.euCookieLawPopup = (function() {
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// PARAMETERS (MODIFY THIS PART) //////////////////////////////////////////////////////////////
 	_self.params = {
-		cookiePolicyUrl : 'http://www.wimagguc.com/?cookie-policy',
+		cookiePolicyUrl : 'https://vigilo.cf/cookies-law',
 		popupPosition : 'top',
 		colorStyle : 'default',
 		compactStyle : false,
@@ -47,7 +47,7 @@ $.fn.euCookieLawPopup = (function() {
 	_self.vars = {
 		INITIALISED : false,
 		HTML_MARKUP : null,
-		COOKIE_NAME : 'EU_COOKIE_LAW_CONSENT'
+		COOKIE_NAME : 'cookies_law'
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////

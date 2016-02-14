@@ -4,14 +4,22 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
   YbdP   88 Yb  "88 88 88  .o Yb   dP 
    YP    88  YboodP 88 88ood8  YbodP  
 -->
+<?php require_once("config/cfg.php");
+require_once("config/session.php"); ?>
+<?php 
+if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
+  header("Location: ".$play_remotepath."/panel");
+  exit;
+}
+?>
 <!DOCTYPE html>
 	<html lang="en-US" prefix="og: http://ogp.me/ns#">
 		<head>
-		<?php 
-			require_once("config/cfg.php"); 
+		<?php
 			require_once("res/vigilolibrary.php");
 
-			head_default("Home", $root_remotepath, $google_ua_id, $bg=1, $redirect=NULL); ?>
+			head_default("Home", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+      <link rel="stylesheet" type="text/css" href="res/fonts/vonique-92-regular.css">
 		</head>
 		<body class="eupopup eupopup-top">
 		<nav class="navbar navbar-default">
@@ -25,18 +33,17 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand vonique-92-regular" href="/">Vigilo</a> 
+          <!-- <img style="max-width:100%; max-height:150%;" alt="" src="https://vigilo.cf/res/logo.png" /> height="100" width="100" -->
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-2">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Works</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <?php echo '<li><a href="'.$play_remotepath.'/">Play</a></li>'; ?>
+            <li><a href="/cookies-law/">Cookies Law</a></li>
+            <li><a href="/terms/">Terms</a></li>
             <li>
               <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
             </li>
@@ -74,7 +81,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 								</div>
 							</div>
 							<div id="terminal"></div>
-							<?php footer_default($bg=0, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+							<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
 						</div>
 				</div>
 			</div>

@@ -50,6 +50,8 @@ if ($mysqli->connect_errno) {
 	$captchapublickey = "";
 	$captchakey = "";
 
+	$facebook_app_id="";
+
 // change db to name_of_db db 
 //$mysqli->select_db("name_of_db");
 /*

@@ -145,6 +145,25 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
   ga('send', 'pageview');
 
 </script>";
+echo "
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '".$facebook_app_id."',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = '//connect.facebook.net/en_US/sdk.js';
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+";
 
 if(!($redirect==NULL)) {
         echo '<script type="text/javascript"> setTimeout("window.location.href='.$redirect.', 5000"); </script>';
@@ -168,7 +187,7 @@ function footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $t
       }
   echo '
             <h6>
-              <b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a>
+              <b>Github: </b><a href="https://github.com/vigiloproject">https://github.com/vigiloproject</a><b> | <a href="'.$root_remotepath.'/cookies-law">Cookies Law</a> | <a href="'.$root_remotepath.'/terms">Terms</a></b>
               <div class="text-center center-block">';
                       if($facebook_page==1)
                       {
