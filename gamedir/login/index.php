@@ -5,8 +5,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <?php 
-session_name("VigiloID");
-session_start(); ?>
+require_once("../../config/session.php"); ?>
 <?php 
 if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 	header("Location: /panel");
