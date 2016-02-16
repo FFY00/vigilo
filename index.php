@@ -5,10 +5,18 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <?php require_once("config/cfg.php");
-require_once("config/session.php"); ?>
+require_once("config/session.php"); 
+
+//Objects
+$configDatabase = new configDatabase();
+$configLinks = new configLinks();
+$configID = new configID();
+$configPath = new configPath();
+
+?>
 <?php 
 if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
-  header("Location: ".$play_remotepath."/panel");
+  header("Location: ".$configPath->$play_remotepath."/panel");
   exit;
 }
 ?>
@@ -17,9 +25,8 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 		<head>
 		<?php
 			require_once("res/vigilolibrary.php");
-
-			head_default("Home", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
-      <link rel="stylesheet" type="text/css" href="res/fonts/vonique-92-regular.css">
+      $vigiloHTML5 = new vigiloHTML5();
+			$vigiloHTML5->head_default("Home", $configPath->$root_remotepath, $configID->$google_ua_id, $bg=0, $redirect=NULL); ?>
 		</head>
 		<body class="eupopup eupopup-top">
 		<nav class="navbar navbar-default">
@@ -41,7 +48,7 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
         <div class="collapse navbar-collapse" id="navbar-collapse-2">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Home</a></li>
-            <?php echo '<li><a href="'.$play_remotepath.'/">Play</a></li>'; ?>
+            <?php echo '<li><a href="'.$configPath->$play_remotepath.'/">Play</a></li>'; ?>
             <li><a href="/cookies-law/">Cookies Law</a></li>
             <li><a href="/terms/">Terms</a></li>
             <li>
@@ -49,14 +56,14 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
             </li>
           </ul>
           <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
-            <form class="navbar-form navbar-right form-inline" role="form">
+            <?php echo '<form name="login_wo_captcha" class="navbar-form navbar-right form-inline" role="form" action="'.$configPath->$play_remotepath.'/login/validation/captcha/" autocomplete="off" method="POST">'; ?>
               <div class="form-group">
-                <label class="sr-only" for="Email">Email</label>
-                <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                <label class="sr-only" for="Email">Username</label>
+                <input type="text" class="form-control" id="email" placeholder="Username" autofocus required />
               </div>
               <div class="form-group">
                 <label class="sr-only" for="Password">Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                <input type="password" class="form-control" id="passwrd" placeholder="Password" required />
               </div>
               <button type="submit" class="btn btn-success">Sign in</button>
             </form>
@@ -75,13 +82,13 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 								</div>
 								<div id="content">
 									<?php 
-										echo '<a class="btn btn-primary btn-lg" href="'.$play_remotepath.'/login/">Login</a> ';
-										echo '<a class="btn btn-success btn-lg" href="'.$play_remotepath.'/register/">Register</a>';
+										echo '<a class="btn btn-primary btn-lg" href="'.$configPath->$play_remotepath.'/login/">Login</a> ';
+										echo '<a class="btn btn-success btn-lg" href="'.$configPath->$play_remotepath.'/register/">Register</a>';
 									?>
 								</div>
 							</div>
 							<div id="terminal"></div>
-							<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+							<?php $vigiloHTML5->footer_default($bg=1, $configLinks->$facebook_page, $configLinks->$facebook_link, $configLinks->$twitter_page, $configLinks->$twitter_link, $configLinks->$googleplus_page, $configLinks->$googleplus_link, $configLinks->$email_page, $configLinks->$email_link); ?>
 						</div>
 				</div>
 			</div>

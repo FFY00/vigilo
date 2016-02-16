@@ -11,7 +11,8 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
 
-			head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$vigiloHTML5 = new vigiloHTML5();
+			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -60,7 +61,7 @@ EMAILCONFIRMATIONFAIL;
 
 ?>
 
-<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
 </div>
 </body>
 </html>

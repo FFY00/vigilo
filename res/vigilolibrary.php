@@ -6,7 +6,8 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 */
 
-function randpass() {
+class  vigiloTools {
+  public function randpass() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     $pass = array();
     $alphaLength = strlen($alphabet) - 1;
@@ -17,15 +18,17 @@ function randpass() {
     return implode($pass);
 }
 
-function emailkey() {
-	$random_password = randpass();
-	$random_number = rand();
-	$datetime = date("w-Y.d.m:t-H::i::s");
-	$str = $datetime . $random_password . $random_number;
-	return md5($str);
+  public function emailkey() {
+  $random_password = randpass();
+  $random_number = rand();
+  $datetime = date("w-Y.d.m:t-H::i::s");
+  $str = $datetime . $random_password . $random_number;
+  return md5($str);
+}
 }
 
-function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NULL) {
+class vigiloHTML5 {
+  public function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NULL) {
   $description="Web-Based Hacking simulation game";
   echo '
       <!--[if IE]>
@@ -113,7 +116,10 @@ function head_default($title, $rootpath, $googleanalyticsid, $bg=0, $redirect=NU
       <link rel="shortcut icon" href="'.$rootpath.'/res/favicon.ico" type="image/x-icon"/>
       <link rel="shortcut icon" href="'.$rootpath.'/res/favicon.ico">
 
-      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/style.css">';
+      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/style.css">
+      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/fonts/vonique-92-regular.css">
+      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/fonts/vonique-92-italic.css">
+      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/fonts/typographica.css">';
 
       if($bg==1) {
         echo '<link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/background.css">';
@@ -179,7 +185,7 @@ if(!($redirect==NULL)) {
       ';
 }
 
-function footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link) {
+  public function footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link) {
   echo '<div id="footer">
           <div id="center">';
   if($bg==1) {
@@ -210,6 +216,7 @@ function footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $t
             </h6>
           </div>
         </div>';
+}
 }
 
 ?>

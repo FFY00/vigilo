@@ -5,25 +5,27 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <?php
-	//Databse Account Cerdentials
-	$hostname = "";
-	$username=  "";
-	$password = "";
-	$dbname =  "";
-
+class configDatabase {
 	//do connection
 	//$mysqli = new mysqli($hostname, $username, $password, $dbname);
+	
+				//Databse Account Cerdentials
+			private $hostname = "";
+			private $username=  "";
+			private $password = "";
+			private $dbname =  "";
+			
+			public $db;
+            // We're migrating from mysqli to PDO
+			public function __construct()
+  { 
+			$this->db = new PDO("mysql:host=$this->hostname;dbname=$this->dbname", $this->username, $this->password);
+			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+  }
+			
 
-	// We're migrating from mysqli to PDO
-	$db = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-	//google analytics ID
-	/* To activate import googleanalytics() function */
-	$google_ua_id="";
-
-// return database name
+	// return database name
 /*
 if ($result = $mysqli->query("SELECT DATABASE()")) {
     $row = $result->fetch_row();
@@ -36,22 +38,6 @@ if ($mysqli->connect_errno) {
 }
 */
 
-	//api remote path
-	$api_remotepath = ""; //Without / in the end of url
-
-	//play remote path
-	$root_remotepath= ""; //Without / in the end of url
-	$play_remotepath = ""; //Without / in the end of url
-
-	//api-check password
-	$api_check_pw = "";
-
-	//recaptcha
-	$captchapublickey = "";
-	$captchakey = "";
-
-	$facebook_app_id="";
-
 // change db to name_of_db db 
 //$mysqli->select_db("name_of_db");
 /*
@@ -63,21 +49,51 @@ if ($result = $mysqli->query("SELECT DATABASE()")) {
 }*/
 
 //$mysqli->close();
+}
+	
+class configID {
+	//google analytics ID
+	/* To activate import googleanalytics() function */
 
+	public $google_ua_id="";
+
+	//For facebook app ID
+	public $facebook_app_id="";
+
+	//recaptcha
+	public $captchapublickey = "";
+	public $captchakey = "";
+
+	public $cookies = "";
+}
+
+class configPath {
+	//api remote path
+	public $api_remotepath = ""; //Without / in the end of url
+
+	//play remote path
+	public $root_remotepath= ""; //Without / in the end of url
+	public $play_remotepath = ""; //Without / in the end of url
+
+	//api-check password
+	public $api_check_pw = "";
+}
+
+class configLinks{
 //Facebook Social Button
-$facebook_page=0;
-$facebook_link="";
+public $facebook_page=0;
+public $facebook_link="";
 
 //Twitter Social Button
-$twitter_page=0;
-$twitter_link="";
+public $twitter_page=0;
+public $twitter_link="";
 
 //Google+ Social Button
-$googleplus_page=0;
-$googleplus_link="";
+public $googleplus_page=0;
+public $googleplus_link="";
 
 //Email Social Button
-$email_page=0;
-$email_link="";
-
+public $email_page=0;
+public $email_link="";
+}
 ?>

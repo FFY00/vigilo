@@ -11,7 +11,9 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
 
-			head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$vigiloTools = new vigiloTools();
+			$vigiloHTML5 = new vigiloHTML5();
+			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -77,7 +79,7 @@ if ($captcha_response_json_success == "false"){
 </div>
 </div>
 CAPTCHA;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -100,7 +102,7 @@ if(!($email == $confemail))
 </div>
 </div>
 EMAIL;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -124,7 +126,7 @@ if(!($passwd == $confpasswd))
 </div>
 </div>
 PASSWORD;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -148,7 +150,7 @@ if(($db->query($query)->rowCount()) > 0){
 </div>
 </div>
 USER;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -173,7 +175,7 @@ if(($db->query($query)->rowCount()) > 0){
 </div>
 </div>
 EMAIL;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -197,7 +199,7 @@ if($usr == NULL)
 </div>
 </div>
 WRONG;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -220,7 +222,7 @@ echo <<<BLANK
 </div>
 </div>
 BLANK;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -243,7 +245,7 @@ echo <<<MIN
 </div>
 </div>
 MIN;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -266,7 +268,7 @@ if($email == NULL)
 </div>
 </div>
 EMAIL;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -289,7 +291,7 @@ if($username == $email)
 </div>
 </div>
 UE;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -312,7 +314,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 </div>
 </div>
 EMAIL;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -358,7 +360,7 @@ $generated_gameip = $random_ip;
 //Generate password in sha512
 $generated_passwd = hash('sha512', $passwd);
 //Generate email key confirmation
-$generated_key=emailkey();
+$generated_key=$vigiloTools->emailkey();
 
 //write in mysql database
 try {
@@ -407,7 +409,7 @@ echo <<<REGISTERED
 </div>
 REGISTERED;
 ?>
-				<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+				<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
 			</div>
 		</body>
 	</html>

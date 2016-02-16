@@ -29,15 +29,15 @@ else {
 			require_once("tab_settings.php");
 			$tabtitle = new TabTitle;
 
-			
-			head_default($tabtitle->set($panel_tab), $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); 
+			$vigiloHTML5 = new vigiloHTML5();
+			$vigiloHTML5->head_default($tabtitle->set($panel_tab), $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); 
 			?>
 	</head>
 	<body>
 	<div id="wrapper">
 <div class="container">
 <div class="row">
-<?php footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
 </div>
 </body>
 </html>

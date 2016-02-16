@@ -19,8 +19,8 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 	<?php 
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
-
-			head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$vigiloHTML5 = new vigiloHTML5()
+			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -83,7 +83,7 @@ if ($captcha_response_json_success == "false"){
 </div>
 </div>
 CAPTCHA;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -107,7 +107,7 @@ if(!($db->query($query)->rowCount()) > 0){
 </div>
 </div>
 USER;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -131,7 +131,7 @@ footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_li
 </div>
 </div>
 USEREMPTY;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -154,7 +154,7 @@ footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_li
 </div>
 </div>
 PASSWORDEMPTY;
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 	echo '
 			</div>
 		</body>
@@ -201,7 +201,7 @@ else{
 LOGINERRORCONFIRM;
 }
 
-footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
 ?>
 </div>
 </body>
