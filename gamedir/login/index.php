@@ -5,7 +5,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
    YP    88  YboodP 88 88ood8  YbodP  
 -->
 <?php 
-require_once("../../config/session.php"); ?>
+require "../../config/session.php"; ?>
 <?php 
 if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 	header("Location: /panel");
@@ -18,8 +18,12 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 			<?php 
 			require_once("../../config/cfg.php"); 
 			require_once("../../res/vigilolibrary.php");
+				//Objects
+			$configLinks = new configLinks();
+			$configID = new configID();
+			$configPath = new configPath();
 			$vigiloHTML5 = new vigiloHTML5();
-			$vigiloHTML5->head_default("Login", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$vigiloHTML5->head_default("Login", $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); ?>
 		</head>
 		<body class="eupopup eupopup-top">
 			<div id="wrapper">
@@ -75,7 +79,7 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 													<span class="help-block"></span>
 													<br/>
 													<div id="center">
-                    									<div class="g-recaptcha" data-sitekey=<?php echo '"' . $captchapublickey . '"'; ?>></div></br>
+                    									<div class="g-recaptcha" data-sitekey=<?php echo '"' . $configID->captchapublickey . '"'; ?>></div></br>
                     								</div>
                     								<br/>
 													<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
@@ -99,7 +103,7 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 							</div>
 						</div>
 				<!--</form>-->
-				<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+				<?php $vigiloHTML5->footer_default($bg=1, $configLinks->facebook_page, $configLinks->facebook_link, $configLinks->twitter_page, $configLinks->twitter_link, $configLinks->googleplus_page, $configLinks->googleplus_link, $configLinks->email_page, $configLinks->email_link); ?>
 			</div>
 		</body>
 	</html>

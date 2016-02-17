@@ -19,7 +19,7 @@ class  vigiloTools {
 }
 
   public function emailkey() {
-  $random_password = randpass();
+  $random_password = $this->randpass();
   $random_number = rand();
   $datetime = date("w-Y.d.m:t-H::i::s");
   $str = $datetime . $random_password . $random_number;
@@ -140,6 +140,9 @@ class vigiloHTML5 {
       <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
 
       <script src="'.$rootpath.'/res/vigilo-js/index.js"></script>
+      <script src="'.$rootpath.'/res/vigilo-js/antipub.js"></script>
+      <script src="'.$rootpath.'/res/vigilo-js/https.js"></script>
+      <script src="'.$rootpath.'/res/vigilo-js/smoothscroll.js"></script>
       '."
       <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

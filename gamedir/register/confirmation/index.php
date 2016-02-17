@@ -10,9 +10,14 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 <?php 
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
-
+				//Objects
+			$configDatabase = new configDatabase();
+			$configLinks = new configLinks();
+			$configID = new configID();
+			$configPath = new configPath();
+			$vigiloTools = new vigiloTools();
 			$vigiloHTML5 = new vigiloHTML5();
-			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$vigiloHTML5->head_default("...", $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -22,7 +27,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 $confirm_email_key=$_GET["key"];
 
 $query = "SELECT * FROM users WHERE confirmkey='" . $confirm_email_key . "'";
-if(($db->query($query)->rowCount()) > 0){
+if(($configDatabase->db->query($query)->rowCount()) > 0){
     echo <<<EMAILCONFIRMATION
 <div id="header">
 	<div id="center"><h1>Email confirmed!</h1><br></div>
@@ -39,10 +44,11 @@ EMAILCONFIRMATION;
 
 	$sql = "UPDATE users SET confirmkey='". $confirm_email_key . "x" ."', confirmed='1'
 WHERE confirmkey='". $confirm_email_key ."'; ";
-	$db->exec($sql);
+	$configDatabase->db->exec($sql);
 	exit;
 }
 
+$configDatabase->db = null;
 	
 echo <<<EMAILCONFIRMATIONFAIL
 <div id="header">
@@ -61,7 +67,7 @@ EMAILCONFIRMATIONFAIL;
 
 ?>
 
-<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+<?php $vigiloHTML5->footer_default($bg=1, $configLinks->facebook_page, $configLinks->facebook_link, $configLinks->twitter_page, $configLinks->twitter_link, $configLinks->googleplus_page, $configLinks->googleplus_link, $configLinks->email_page, $configLinks->email_link); ?>
 </div>
 </body>
 </html>

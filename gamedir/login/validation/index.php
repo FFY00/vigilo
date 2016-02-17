@@ -3,11 +3,10 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
  Yb  dP  88 dP   `" 88 88     dP   Yb 
   YbdP   88 Yb  "88 88 88  .o Yb   dP 
    YP    88  YboodP 88 88ood8  YbodP  
+
+   @parm-title Login Validation Form
 -->
-<?php 
-session_name("VigiloID");
-session_start(); ?>
-<?php 
+<?php require "../../../config/session.php";
 if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 	header("Location: /panel");
 	exit;
@@ -19,8 +18,16 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 	<?php 
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
-			$vigiloHTML5 = new vigiloHTML5()
-			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			require "../../../config/msg.php";
+				//Objects
+			$configDatabase = new configDatabase();
+			$configLinks = new configLinks();
+			$configID = new configID();
+			$configPath = new configPath();
+			$vigiloTools = new vigiloTools();
+			$vigiloHTML5 = new vigiloHTML5();
+			$MsgConfig = new MsgConfig();
+			$vigiloHTML5->head_default("...", $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -38,7 +45,7 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 //set POST variables
 $url = 'https://www.google.com/recaptcha/api/siteverify';
 $fields = array(
-	'secret' => urlencode($captchakey),
+	'secret' => urlencode($configID->captchakey),
 	'response' => urlencode($captcharesponse)
 );
 foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
@@ -70,96 +77,24 @@ $json_parse_array = json_decode($captcha_response_body, true);
 $captcha_response_json_error_codes = $json_parse_array->{'error-codes'};
 
 if ($captcha_response_json_success == "false"){
-	echo <<<CAPTCHA
-<div id="header">
-	<div id="center"><h1>Wrong captcha, try again!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/login">
-</div>
-</div>
-CAPTCHA;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Wrong captcha, try again!", '/login', $redirect_time=5000);
 }
 
 $query = "SELECT * FROM users WHERE username='" . $usr . "'";
 if(!($usr == NULL)){
-if(!($db->query($query)->rowCount()) > 0){
-    echo <<<USER
-<div id="header">
-	<div id="center"><h1>Wrong Username!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/login">
-</div>
-</div>
-USER;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+if(!($configDatabase->db->query($query)->rowCount()) > 0){
+    $MsgConfig->information_msg("Wrong username!", '/login', $redirect_time=5000);
 }
 }
 
 	if ($usr ==NULL)
 	{
-		echo <<<USEREMPTY
-<div id="header">
-	<div id="center"><h1>Empty Username!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/login">
-</div>
-</div>
-USEREMPTY;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-	exit;
+		$MsgConfig->information_msg("Empty username!", '/login', $redirect_time=5000);
 	}
 
 	if ($passwd ==NULL)
 	{
-		echo <<<PASSWORDEMPTY
-<div id="header">
-	<div id="center"><h1>Empty password!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/login">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/login'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/login">
-</div>
-</div>
-PASSWORDEMPTY;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-	exit;
+		$MsgConfig->information_msg("Empty password!", '/login', $redirect_time=5000);
 	}
 
 		//Generate password in sha512
@@ -168,7 +103,7 @@ $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_pag
 
 	//read mysql database
 $query = "SELECT * FROM users WHERE confirmed='1' AND ( username='" . $usr . "' AND password='".$generated_passwd."' )";
-if(($db->query($query)->rowCount()) > 0){
+if(($configDatabase->db->query($query)->rowCount()) > 0){
     echo <<<LOGIN
 <div id="header">
 	<div id="center"><h1>Login successfully!</h1><br></div>
@@ -201,7 +136,7 @@ else{
 LOGINERRORCONFIRM;
 }
 
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
+$vigiloHTML5->footer_default($bg=1, $configLinks->facebook_page, $configLinks->facebook_link, $configLinks->twitter_page, $configLinks->twitter_link, $configLinks->googleplus_page, $configLinks->googleplus_link, $configLinks->email_page, $configLinks->email_link);
 ?>
 </div>
 </body>

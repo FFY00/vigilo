@@ -10,10 +10,16 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 <?php 
 			require_once("../../../config/cfg.php"); 
 			require_once("../../../res/vigilolibrary.php");
-
+			require "../../../config/msg.php";
+				//Objects
+			$configDatabase = new configDatabase();
+			$configLinks = new configLinks();
+			$configID = new configID();
+			$configPath = new configPath();
 			$vigiloTools = new vigiloTools();
 			$vigiloHTML5 = new vigiloHTML5();
-			$vigiloHTML5->head_default("...", $root_remotepath, $google_ua_id, $bg=0, $redirect=NULL); ?>
+			$MsgConfig = new MsgConfig();
+			$vigiloHTML5->head_default("...", $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); ?>
 	</head>
 	<body>
 	<div id="wrapper">
@@ -34,7 +40,7 @@ $captcharesponse = $_POST["g-recaptcha-response"];
 //set POST variables
 $url = 'https://www.google.com/recaptcha/api/siteverify';
 $fields = array(
-	'secret' => urlencode($captchakey),
+	'secret' => urlencode($configID->captchakey),
 	'response' => urlencode($captcharesponse)
 );
 foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
@@ -66,260 +72,62 @@ $json_parse_array = json_decode($captcha_response_body, true);
 $captcha_response_json_error_codes = $json_parse_array->{'error-codes'};
 
 if ($captcha_response_json_success == "false"){
-	echo <<<CAPTCHA
-<div id="header">
-	<div id="center"><h1>Wrong captcha, try again!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-CAPTCHA;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Wrong captcha, try again!", '/register', $redirect_time=5000);
 }
 
 if(!($email == $confemail))
 {
-	echo <<<EMAIL
-<div id="header">
-	<div id="center"><h1>Your email confirmation is wrong!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-EMAIL;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-	exit;
+	$MsgConfig->information_msg("Your email confirmation is wrong!", '/register', $redirect_time=5000);
 }
 
 
 if(!($passwd == $confpasswd))
 {
-	echo <<<PASSWORD
-<div id="header">
-	<div id="center"><h1>Your password confirmation is wrong!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-PASSWORD;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-	exit;
+	$MsgConfig->information_msg("Your password confirmation is wrong!", '/register', $redirect_time=5000);
 }
 
 $query = "SELECT * FROM users WHERE username='" . $usr . "'";
 if(!($usr == NULL)){
-if(($db->query($query)->rowCount()) > 0){
-    echo <<<USER
-<div id="header">
-	<div id="center"><h1>This username is already exists!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-USER;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+if(($configDatabase->db->query($query)->rowCount()) > 0){
+	$MsgConfig->information_msg("This username is already exists!", '/register', $redirect_time=5000);
 }
 }
 
 $query = "SELECT * FROM users WHERE email='" . $email . "'";
 if(!($email == NULL)){
-if(($db->query($query)->rowCount()) > 0){
-    echo <<<EMAIL
-<div id="header">
-	<div id="center"><h1>This email is already exists!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-EMAIL;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+if(($configDatabase->db->query($query)->rowCount()) > 0){
+	$MsgConfig->information_msg("This email is already exists!", '/register', $redirect_time=5000);
 }
 }
 
 if($usr == NULL)
 {
-	echo <<<WRONG
-<div id="header">
-	<div id="center"><h1>Wrong username!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-WRONG;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Wrong username!", '/register', $redirect_time=5000);
 }
 
 if($passwd == NULL)
 {
-echo <<<BLANK
-<div id="header">
-	<div id="center"><h1>Blank password!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-BLANK;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Blank Password!", '/register', $redirect_time=5000);
 }
 
 if(strlen($passwd) < 8)
 {
-echo <<<MIN
-<div id="header">
-	<div id="center"><h1>Insert minimum 8 characters in your password!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-MIN;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Insert minimum 8 characters in your password!", '/register', $redirect_time=5000);
 }
 
 if($email == NULL)
 {
-	echo <<<EMAIL
-<div id="header">
-	<div id="center"><h1>Wrong email!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-EMAIL;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Wrong email!", '/register', $redirect_time=5000);
 }
 
 if($username == $email)
 {
-	echo <<<UE
-<div id="header">
-	<div id="center"><h1>We dont allow username equal email!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-UE;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("We dont allow username equal email!", '/register', $redirect_time=5000);
 }
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 {
-	echo <<<EMAIL
-<div id="header">
-	<div id="center"><h1>Invalid email address!</h1><br></div>
-</div>
-<div id="content">
-<div id="center">
-<p>If you are not redirected automatically, follow the <a href="/register">link</a>.</p>
-</div>
-<script type="text/javascript"> setTimeout("window.location.href = ' . "'/register'" . '", 5000); </script>
-<meta http-equiv="refresh" content="5;url=/register">
-</div>
-</div>
-EMAIL;
-$vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link);
-	echo '
-			</div>
-		</body>
-	</html>';
-    exit;
+	$MsgConfig->information_msg("Invalid email address!", '/register', $redirect_time=5000);
 }
 /*
 	// create a new cURL resource
@@ -342,7 +150,7 @@ $random_ip = rand(1, 255).".".rand(1, 255).".".rand(1, 255).".".rand(1, 255);
 
 $query = "SELECT * FROM users WHERE gameip='" . $random_ip . "'";
 
-	if(($db->query($query)->rowCount()) > 0)
+	if(($configDatabase->db->query($query)->rowCount()) > 0)
 	{
 		$ipv4 = "1";
 	}
@@ -365,7 +173,7 @@ $generated_key=$vigiloTools->emailkey();
 //write in mysql database
 try {
 	$sql = "INSERT INTO users (username, password, email, gameip, confirmkey) VALUES ('$usr', '$generated_passwd', '$email', '$generated_gameip', '$generated_key');";
-	$db->exec($sql);
+	$configDatabase->db->exec($sql);
 	}
 catch(PDOException $e)
     {
@@ -395,7 +203,7 @@ $headers[] = "X-Mailer: PHP/".phpversion();
 mail($email, $subject ,$msg , implode("\r\n", $headers));
 
 
-$db = null;
+$configDatabase->db = null;
 
 echo <<<REGISTERED
 <div id="header">
@@ -409,7 +217,7 @@ echo <<<REGISTERED
 </div>
 REGISTERED;
 ?>
-				<?php $vigiloHTML5->footer_default($bg=1, $facebook_page, $facebook_link, $twitter_page, $twitter_link, $googleplus_page, $googleplus_link, $email_page, $email_link); ?>
+				<?php $vigiloHTML5->footer_default($bg=1, $configLinks->facebook_page, $configLinks->facebook_link, $configLinks->twitter_page, $configLinks->twitter_link, $configLinks->googleplus_page, $configLinks->googleplus_link, $configLinks->email_page, $configLinks->email_link); ?>
 			</div>
 		</body>
 	</html>
