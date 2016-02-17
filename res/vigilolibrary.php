@@ -126,16 +126,25 @@ class vigiloHTML5 {
       }
       echo '
       <script src="//oss.maxcdn.com/jquery/2.2.0/jquery.js"></script>
-
-      <script src="//www.google.com/recaptcha/api.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.css"/>
-      <script src="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.js"></script>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
       <link type="text/css" href="//oss.maxcdn.com/normalize/3.0.3/normalize.css" rel="stylesheet">
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+      <script src="'.$rootpath.'/res/jquery-ui/jquery-ui.js"></script>
+      <link rel="stylesheet" href="'.$rootpath.'/res/jquery-ui/jquery-ui.theme.css">
+      <link rel="stylesheet" href="'.$rootpath.'/res/jquery-ui/jquery-ui.structure.css">
+      <link rel="stylesheet" href="'.$rootpath.'/res/jquery-ui/jquery-ui.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      
+
+      <script src="//www.google.com/recaptcha/api.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.css"/>
+      <script src="'.$rootpath.'/res/jquery-eu-cookie-law-popup/jquery-eu-cookie-law-popup.js"></script>
 
       <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
 
@@ -143,6 +152,8 @@ class vigiloHTML5 {
       <script src="'.$rootpath.'/res/vigilo-js/antipub.js"></script>
       <script src="'.$rootpath.'/res/vigilo-js/https.js"></script>
       <script src="'.$rootpath.'/res/vigilo-js/smoothscroll.js"></script>
+
+      <script src="'.$rootpath.'/res/jquery-backstretch/jquery.backstretch.min.js"></script>
       '."
       <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

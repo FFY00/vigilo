@@ -7,8 +7,8 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 <?php 
 class TabTitle {
 	public function set($title) {
-		if($title == "dashboard") {
-			return "Dashboard";
+		if($title == "panel") {
+			return "Panel";
 		}
 		else {
 			return "Panel";
