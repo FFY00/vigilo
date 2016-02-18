@@ -40,6 +40,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				$vigiloHTML5->head_default($tabtitle->set($panel_tab), $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); 
 			?>
 			<script>
+				var menuState = 0;
 				/*
 				Yb    dP 88  dP""b8 88 88      dP"Yb  
 				 Yb  dP  88 dP   `" 88 88     dP   Yb 
@@ -62,10 +63,61 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
             				$("#aftersplash").show();
             				$.backstretch("imgs/bg.jpg");
             				document.getElementById("aftersplash_sound").play();
-            				$( "#dialog-welcome" ).dialog().css("font-size", "12px");
+            				$("#dialog-welcome").dialog({
+            					autoOpen: true,
+            					show: "fade",
+							    hide: "fade",
+							    modal: false,
+							    dialogClass: 'no-close',
+							    title: 'Welcome to Vigilo OS'
+            				}).css("font-size", "12px");
+            				$("ul#menu").menu().hide();
+            				$("#dialog-console").dialog({
+							    autoOpen: false,
+							    show: "fade",
+							    hide: "fade",
+							    modal: false,
+							    open: function (ev, ui) {
+							      $('#iframe-terminal').src = 'apps/console.php';
+							    },
+							    height: '300',
+							    width: '450',
+							    dialogClass: 'console',
+							    resizable: false,
+							    position: [10,10],
+							    title: 'Terminal'
+							});
         				});
     				}, 1750);
 				});
+				  
+				function showMenu() {
+					if(menuState == 0) {
+						menuState = 1;
+						$("ul#menu").menu().show().position({
+				              my: "left top", 
+				              at: "left bottom",
+				              collision: "flipfit flipfit"
+				        });
+					} else if (menuState == 1) {
+						$("ul#menu").menu().hide();
+						menuState = 0;
+					}
+
+					return false;
+				}
+				$(document).click(function(e) {
+				  	if( e.target.id != 'menu') {
+				  		$("ul#menu").menu().hide();
+				  		menuState = 0;
+				  	}
+				  	$("#dialog-welcome").dialog("close");
+
+				});
+				function showConsole() {
+					$("#dialog-console").dialog("open");
+    				return false;
+				}
 			</script>
       		<style>
       			/*
@@ -112,16 +164,18 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
     				display: block;
     				margin: auto;
   				}
-  				#status {
-      				background:#ffffff;
-      				border-top:solid 1px #aaaaaa;
-      				bottom:0;
+  				#status-div {
+  					bottom:0;
       				left:0;
       				margin:0;
       				padding:0;
       				position:fixed;
       				width:100%;
-      				color: #222222;
+  				}
+  				#status {
+      				background:#ffffff;
+      				border-top:solid 1px #aaaaaa;
+      				color: #000000;
     			}
 
     			#status div {
@@ -136,6 +190,24 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				}
 				.ui-dialog-title {
 					font-size:12px;
+				}
+				.ui-menu { width: 150px; }
+				iframe {
+					border-style: none;
+				}
+				.console {
+				    
+				    background:#000000;
+				}
+				.ui-dialog .ui-dialog-content {
+					padding: 0;
+				}
+				.no-close .ui-dialog-titlebar-close {
+				  display: none;
+				}
+				.ui-dialog .ui-dialog-title {
+				  text-align: center;
+				  width: 100%;
 				}
       		</style>
 		</head>
@@ -157,63 +229,80 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
  								<source src="sounds/splash_sound.mp3" type="audio/mpeg">
 							</audio>
 							<div id="dialog-welcome" title="Welcome to Vigilo OS">
-  								<p style="font-size:11px;">Welcome to Vigilo Operation System! It is here that you can simulate a hacker computer! Start hacking and enjoy this awesome web-based game!</p>
+								<div style="text-align: center;">
+									<p style="font-size:11px; text-align: center;">Welcome to Vigilo Operation System! It is here that you can simulate a hacker computer! Start hacking and enjoy this awesome web-based game!</p>
+								</div>
 							</div>
-							<div id="status" style="font-size:14px;">
-      							<span>
-       			 					owl
-      							</span>
-      							<span class="statusright">
-	      							<b>
-	      								<span id="time">
-	      									<script>
-	      										(function () {
-	    											function checkTime(i) {
-	        											return (i < 10) ? "0" + i : i;
-	    											}
-	    											function startTime() {
-	        											var today = new Date(),
-	            										h = checkTime(today.getHours()),
-											            m = checkTime(today.getMinutes()),
-											            s = checkTime(today.getSeconds());
-	        											document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-	        											t = setTimeout(function () {
-	            											startTime()
-	        											}, 500);
-	    											}
-	    											startTime();
-												})();
-											</script>
-										</span>
-									</b>
-									&nbsp;
-									<span>
+							<div id="dialog-console" title="Terminal">
+								<iframe src="apps/console.php" id="iframe-terminal" width="441" height="253" allowfullscreen></iframe> 
+							</div>
+							<div id="status-div">
+								<ul id="menu">
+								         	<li><a href="#">Applications</a>
+								            	<ul>
+								               		<li><a href="#" onclick="showConsole()">Terminal</a></li>
+								            	</ul>
+								         	</li>
+								         	<li><a href="#">About</a></li>
+								         	<li><a href="/logout">Logout</a></li>
+								      	</ul>
+								<div id="status" style="font-size:14px;">
+	      							<span>
+	      								&nbsp;
+	       			 					<img src="imgs/menu-btn.png" alt="" width="14" height="14" onclick="showMenu()" id="menu">
+	      							</span>
+	      							<span class="statusright">
+		      							<b>
+		      								<span id="time">
+		      									<script>
+		      										(function () {
+		    											function checkTime(i) {
+		        											return (i < 10) ? "0" + i : i;
+		    											}
+		    											function startTime() {
+		        											var today = new Date(),
+		            										h = checkTime(today.getHours()),
+												            m = checkTime(today.getMinutes()),
+												            s = checkTime(today.getSeconds());
+		        											document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+		        											t = setTimeout(function () {
+		            											startTime()
+		        											}, 500);
+		    											}
+		    											startTime();
+													})();
+												</script>
+											</span>
+										</b>
 										&nbsp;
-										<script type="text/javascript">
-											function toggleFullScreen() {
-											  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard method
-											      (!document.mozFullScreen && !document.webkitIsFullScreen)) {               // current working methods
-											    if (document.documentElement.requestFullScreen) {
-											      document.documentElement.requestFullScreen();
-											    } else if (document.documentElement.mozRequestFullScreen) {
-											      document.documentElement.mozRequestFullScreen();
-											    } else if (document.documentElement.webkitRequestFullScreen) {
-											      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-											    }
-											  } else {
-											    if (document.cancelFullScreen) {
-											      document.cancelFullScreen();
-											    } else if (document.mozCancelFullScreen) {
-											      document.mozCancelFullScreen();
-											    } else if (document.webkitCancelFullScreen) {
-											      document.webkitCancelFullScreen();
-											    }
-											  }
-											}
-										</script>
-										<img src="imgs/fullscreen-btn.png" alt="" width="14" height="14" onclick="toggleFullScreen()">
+										<span>
+											&nbsp;
+											<script type="text/javascript">
+												function toggleFullScreen() {
+												  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard method
+												      (!document.mozFullScreen && !document.webkitIsFullScreen)) {               // current working methods
+												    if (document.documentElement.requestFullScreen) {
+												      document.documentElement.requestFullScreen();
+												    } else if (document.documentElement.mozRequestFullScreen) {
+												      document.documentElement.mozRequestFullScreen();
+												    } else if (document.documentElement.webkitRequestFullScreen) {
+												      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+												    }
+												  } else {
+												    if (document.cancelFullScreen) {
+												      document.cancelFullScreen();
+												    } else if (document.mozCancelFullScreen) {
+												      document.mozCancelFullScreen();
+												    } else if (document.webkitCancelFullScreen) {
+												      document.webkitCancelFullScreen();
+												    }
+												  }
+												}
+											</script>
+											<img src="imgs/fullscreen-btn.png" alt="" width="14" height="14" onclick="toggleFullScreen()">
+										</span>
 									</span>
-								</span>
+	    						</div>
     						</div>
 						</div>
 					</div>
