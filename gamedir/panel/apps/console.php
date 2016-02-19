@@ -97,7 +97,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 					var data = new Date();
    					msg =  'Last login: '+data.toLocaleString()+ ' from 127.0.0.1';
    					writeMessage(msg);
-   					$('#user-caption').on('keypress' || 'keyup', function(e){
+   					$('#user-caption').on('keypress' || 'keydown', function(e){
 				      caption = $('input#user-caption').val();
 				      switch (e.keyCode) {
 				         case 8:
