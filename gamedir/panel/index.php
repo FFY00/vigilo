@@ -141,6 +141,7 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				});
 				function showConsole() {
 					$("#dialog-console").dialog("open");
+					$("div#terminal.terminal").focus();
     				return false;
 				}
 			</script>
@@ -307,12 +308,12 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							</div>
 							<div id="status-div">
 								<ul id="menu">
-								         	<li><a href="#" id="menu">Applications</a>
+								         	<li><a id="menu">Applications</a>
 								            	<ul>
-								               		<li><a href="#" onclick="showConsole()">Terminal</a></li>
+								               		<li><a onclick="showConsole()">Terminal</a></li>
 								            	</ul>
 								         	</li>
-								         	<li><a href="#">About</a></li>
+								         	<li><a>About</a></li>
 								         	<li><a href="/logout">Logout</a></li>
 								      	</ul>
 								<div id="status" style="font-size:14px;">
