@@ -63,12 +63,14 @@ Vigilo use many free services to work correctly, like:
  - [x] Email Confirmation
  - [ ] Config travis-ci ([Issues #10](https://github.com/vigiloproject/vigilo/issues/10))
  - [x] Login Form
- - [ ] Login Validation
- - [ ] Main Panel
+ - [x] Login Validation
+ - [x] Main Panel
  - [ ] Real vs. Game Disk Space Math Formula
- - [ ] HTML5 Support ([Issues #9](https://github.com/vigiloproject/vigilo/issues/9))
+ - [x] HTML5 Support ([Issues #9](https://github.com/vigiloproject/vigilo/issues/9))
  - [ ] Implement Hardware and Software ([Issues #11](https://github.com/vigiloproject/vigilo/issues/11))
- - [ ] AJAX Integration ([Issues #14](https://github.com/vigiloproject/vigilo/issues/14))
+ - [x] AJAX Integration ([Issues #14](https://github.com/vigiloproject/vigilo/issues/14))
+ - [x] CLI - Console
+ - [ ] Desktop Environment
  - [ ] Coming Soon! (Share ideas with us)
 
 Visit our mindmap [here](http://repository.vigilo.cf/mindmap/).
