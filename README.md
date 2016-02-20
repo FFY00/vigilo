@@ -34,6 +34,10 @@ Vigilo uses a number of open source projects to work correctly:
 * jQuery
 * jquery-eu-cookie-law-popup
 * jquery-smoothscroll
+* jquery-ui
+* jquery-terminal
+* jquery.mousewheel
+* jquery-backstretch
 * reveal-js
 * atoum
 * font-awesome
@@ -48,6 +52,7 @@ Vigilo uses a number of open source projects to work correctly:
 * bootsnipp
 * html5shiv
 * html5shiv-printshiv
+* require-js
 
 Vigilo use many free services to work correctly, like:
 * x10hosting - Web Hosting
