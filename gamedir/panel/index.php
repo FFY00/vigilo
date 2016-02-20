@@ -39,6 +39,12 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				$vigiloHTML5 = new vigiloHTML5();
 				$vigiloHTML5->head_default($tabtitle->set($panel_tab), $configPath->root_remotepath, $configID->google_ua_id, $bg=0, $redirect=NULL); 
 			?>
+			<script src="//oss.maxcdn.com/jquery.terminal/0.8.8/jquery.terminal-min.js"></script>
+	      	<script src="//oss.maxcdn.com/jquery.terminal/0.8.8/jquery.terminal-src.js"></script>
+	      	<script src="jquery.mousewheel.js"></script>
+	      	
+	      	<link rel="stylesheet" type="text/css" href="//oss.maxcdn.com/jquery.terminal/0.8.8/jquery.terminal.css">
+	      	<link rel="stylesheet" type="text/css" href="//oss.maxcdn.com/jquery.terminal/0.8.8/jquery.terminal.min.css">
 			<script>
 				var menuState = 0;
 				/*
@@ -78,15 +84,31 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							    hide: "fade",
 							    modal: false,
 							    open: function (ev, ui) {
-							      $('#iframe-terminal').src = 'apps/console.php';
+							    	$("div#dialog-console.ui-dialog-content.ui-widget-content").scrollTop($("div#terminal.terminal").height());
 							    },
 							    height: '300',
 							    width: '450',
 							    dialogClass: 'console',
 							    resizable: false,
+							    closeOnEscape: false,
 							    position: [10,10],
 							    title: 'Terminal'
 							});
+							$('#terminal').terminal(function(command, term) {
+								switch(command) {
+									case 'help':
+										term.echo(new String("[[;teal;black]Comming Soon!]"));
+										break;
+									case '':
+									default:
+										term.echo(new String("[[;red;black]command not found: ][[;black;red]'" + command + "']"));
+										term.echo(new String('[[;red;black]try \'help\']'));
+								}
+    							$("div#dialog-console.ui-dialog-content.ui-widget-content").scrollTop($("div#terminal.terminal").height());
+						    }, {
+						        greetings: 'Yb    dP 88  dP""b8 88 88      dP"Yb  \n Yb  dP  88 dP   `" 88 88     dP   Yb \n  YbdP   88 Yb  "88 88 88  .o Yb   dP \n   YP    88  YboodP 88 88ood8  YbodP  \n',
+						        name: 'terminal',
+						        prompt: <?php echo "'".$_SESSION["s_usr"]."@vigilo$ '"; ?> });
         				});
     				}, 1750);
 				});
@@ -113,6 +135,9 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				  	}
 				  	$("#dialog-welcome").dialog("close");
 
+				});
+				$("div#dialog-console.ui-dialog-content.ui-widget-content").click(function(e) {
+					$("div#terminal.terminal").focus();
 				});
 				function showConsole() {
 					$("#dialog-console").dialog("open");
@@ -149,6 +174,13 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				#aftersplash {
 		    		display: none;
 		    		background: url(imgs/bg.jpg) no-repeat center center fixed; 
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+				}
+				body{
+					background: url(imgs/bg.jpg) no-repeat center center fixed; 
                     -webkit-background-size: cover;
                     -moz-background-size: cover;
                     -o-background-size: cover;
@@ -209,6 +241,43 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				  text-align: center;
 				  width: 100%;
 				}
+				@keyframes blink {
+				  0% { opacity: 1; }
+				  25% { opacity: 0; }
+				  50% { opacity: 0; }
+				  100% { opacity: 1; }
+				}
+				@-webkit-keyframes blink {
+				  0% { opacity: 1; }
+				  25% { opacity: 0; }
+				  50% { opacity: 0; }
+				  100% { opacity: 1; }
+				}
+				@-ms-keyframes blink {
+				  0% { opacity: 1; }
+				  25% { opacity: 0; }
+				  50% { opacity: 0; }
+				  100% { opacity: 1; }
+				}
+				@-moz-keyframes blink {
+				  0% { opacity: 1; }
+				  25% { opacity: 0; }
+				  50% { opacity: 0; }
+				  100% { opacity: 1; }
+				}
+				.prompt, .command {
+				  color: #0c0;
+				}
+				.cursor {
+				  background: #0c0;
+				  animation: blink 1s linear infinite;
+				  -webkit-animation: blink 1s infinite linear;
+				  -ms-animation: blink 1s infinite linear;
+				  -moz-animation: blink 1s infinite linear;
+				}
+				.terminal-output {
+				  color: #0c0;
+				}
       		</style>
 		</head>
 		<body>
@@ -234,11 +303,11 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 								</div>
 							</div>
 							<div id="dialog-console" title="Terminal">
-								<iframe src="apps/console.php" id="iframe-terminal" width="441" height="253" allowfullscreen></iframe> 
+								<div id="terminal" style=""></div>
 							</div>
 							<div id="status-div">
 								<ul id="menu">
-								         	<li><a href="#">Applications</a>
+								         	<li><a href="#" id="menu">Applications</a>
 								            	<ul>
 								               		<li><a href="#" onclick="showConsole()">Terminal</a></li>
 								            	</ul>
