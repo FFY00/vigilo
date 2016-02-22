@@ -10,10 +10,10 @@ class configDatabase {
 	//$mysqli = new mysqli($hostname, $username, $password, $dbname);
 	
 				//Databse Account Cerdentials
-			private $hostname = "";
-			private $username=  "";
-			private $password = "";
-			private $dbname =  "";
+			private $hostname = "localhost";
+			private $username=  "root";
+			private $password = "root";
+			private $dbname =  "vigilo";
 			
 			public $db;
             // We're migrating from mysqli to PDO
@@ -55,7 +55,7 @@ class configID {
 	//google analytics ID
 	/* To activate import googleanalytics() function */
 
-	public $google_ua_id="";
+	public $google_ua_id="UA-00000-0";
 
 	//For facebook app ID
 	public $facebook_app_id="";
@@ -64,7 +64,7 @@ class configID {
 	public $captchapublickey = "";
 	public $captchakey = "";
 
-	public $cookies = "";
+	public $cookies = "vigiloid";
 }
 
 class configPath {
