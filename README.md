@@ -75,7 +75,7 @@ Vigilo use many free services to work correctly, like:
  - [ ] Implement Hardware and Software ([Issues #11](https://github.com/vigiloproject/vigilo/issues/11))
  - [x] AJAX Integration ([Issues #14](https://github.com/vigiloproject/vigilo/issues/14))
  - [x] CLI - Console
- - [ ] Desktop Environment
+ - [x] Desktop Environment
  - [ ] Coming Soon! (Share ideas with us)
 
 Visit our mindmap [here](http://repository.vigilo.cf/mindmap/).
