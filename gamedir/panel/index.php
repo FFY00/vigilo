@@ -78,6 +78,17 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							    title: 'Welcome to Vigilo OS'
             				}).css("font-size", "12px");
             				$("ul#menu").menu().hide();
+            				$("#menu-context-body").menu().hide();
+            				$("body").on("contextmenu", function (e) {
+            					$("#menu-context-body").removeAttr("style");
+					            $("#menu-context-body").position({
+					                my: "left top",
+					                of: e,
+					                collision: "fit"
+					            });
+					            $("#menu-context-body").show();
+					            return false;
+					        });
             				$("#dialog-console").dialog({
 							    autoOpen: false,
 							    show: "fade",
@@ -97,9 +108,13 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							$('#terminal').terminal(function(command, term) {
 								switch(command) {
 									case 'help':
+										term.echo(new String("[[;white;black]Commands:]"));
+										term.echo(new String(""));
+										term.echo(new String("[[;white;black]clear - Clear Console]"));
 										term.echo(new String("[[;teal;black]Comming Soon!]"));
 										break;
 									case '':
+										break;
 									default:
 										term.echo(new String("[[;red;black]command not found: ][[;black;red]'" + command + "']"));
 										term.echo(new String('[[;red;black]try \'help\']'));
@@ -109,6 +124,20 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 						        greetings: 'Yb    dP 88  dP""b8 88 88      dP"Yb  \n Yb  dP  88 dP   `" 88 88     dP   Yb \n  YbdP   88 Yb  "88 88 88  .o Yb   dP \n   YP    88  YboodP 88 88ood8  YbodP  \n',
 						        name: 'terminal',
 						        prompt: <?php echo "'".$_SESSION["s_usr"]."@vigilo$ '"; ?> });
+							$("#dialog-calculator").dialog({
+							    autoOpen: false,
+							    show: "fade",
+							    hide: "fade",
+							    modal: false,
+							    open: function (ev, ui) {
+							    },
+							    height: 'auto',
+							    width: '210',
+							    dialogClass: 'calculator',
+							    resizable: false,
+							    closeOnEscape: true,
+							    title: 'Calculator'
+							});
         				});
     				}, 1750);
 				});
@@ -128,12 +157,16 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 
 					return false;
 				}
+				$( document ).mousemove(function( event ) {
+	            });
 				$(document).click(function(e) {
-				  	if( e.target.id != 'menu') {
+					var targetEvent = $( e.target );
+				  	if( e.target.id != "ui-id-2" && e.target.id != "menu" && (!targetEvent.is(".ui-icon-carat-1-e"))) {
 				  		$("ul#menu").menu().hide();
 				  		menuState = 0;
 				  	}
 				  	$("#dialog-welcome").dialog("close");
+				  	$("#menu-context-body").menu().hide();
 
 				});
 				$("div#dialog-console.ui-dialog-content.ui-widget-content").click(function(e) {
@@ -142,6 +175,10 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 				function showConsole() {
 					$("#dialog-console").dialog("open");
 					$("div#terminal.terminal").focus();
+    				return false;
+				}
+				function showCalculator() {
+					$("#dialog-calculator").dialog("open");
     				return false;
 				}
 			</script>
@@ -236,7 +273,11 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 					padding: 0;
 				}
 				.no-close .ui-dialog-titlebar-close {
-				  display: none;
+				  	display: none;
+				}
+				#menu-context-body {
+					display: none;
+					font-size:11px;
 				}
 				.ui-dialog .ui-dialog-title {
 				  text-align: center;
@@ -283,6 +324,10 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 		</head>
 		<body>
 			<div id="wrapper">
+			<ul id="menu-context-body">
+								<li><a>About</a></li>
+							  	<li><a>Customize</a></li>
+							</ul>
 				<div class="container">
 					<div class="row">
 						<div id="splash">
@@ -306,19 +351,59 @@ Yb    dP 88  dP""b8 88 88      dP"Yb
 							<div id="dialog-console" title="Terminal">
 								<div id="terminal" style=""></div>
 							</div>
+							<div id="dialog-calculator" title="Calculator">
+								<div id="center">
+									<form name="calc" class="form-group">
+										<div id="center">
+											<table border=0>
+												<div id="center">
+													<tr>
+														<td colspan=4><input class="form-control" type="text" name="display"></td>
+													</tr>
+													<tr>
+														<td><input class="form-control" type="button" value="0" OnClick="calc.display.value+='0'"></td>
+														<td><input class="form-control" type="button" value="1" OnClick="calc.display.value+='1'"></td>
+														<td><input class="form-control" type="button" value="2" OnClick="calc.display.value+='2'"></td>
+														<td><input class="form-control btn-primary" type="button" value="+" OnClick="calc.display.value+='+'"></td>
+													</tr>
+													<tr>
+														<td><input class="form-control" type="button" value="3" OnClick="calc.display.value+='3'"></td>
+														<td><input class="form-control" type="button" value="4" OnClick="calc.display.value+='4'"></td>
+														<td><input class="form-control" type="button" value="5" OnClick="calc.display.value+='5'"></td>
+														<td><input class="form-control btn-primary" type="button" value="-" OnClick="calc.display.value+='-'"></td>
+													</tr>
+													<tr>
+														<td><input class="form-control" type="button" value="6" OnClick="calc.display.value+='6'"></td>
+														<td><input class="form-control" type="button" value="7" OnClick="calc.display.value+='7'"></td>
+														<td><input class="form-control" type="button" value="8" OnClick="calc.display.value+='8'"></td>
+														<td><input class="form-control btn-primary" type="button" value="x" OnClick="calc.display.value+='*'"></td>
+													</tr>
+													<tr>
+														<td><input class="form-control" type="button" value="9" OnClick="calc.display.value+='9'"></td>
+														<td><input class="form-control btn-danger" type="button" value="C" OnClick="calc.display.value=''"></td>
+														<td><input class="form-control btn-success" type="button" value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
+														<td><input class="form-control btn-primary" type="button" value="/" OnClick="calc.display.value+='/'"></td>
+													</tr>
+												</div>
+											</table>
+										</div>
+									</form>
+								</div>
+							</div>
 							<div id="status-div">
 								<ul id="menu">
-								         	<li><a id="menu">Applications</a>
-								            	<ul>
-								               		<li><a onclick="showConsole()">Terminal</a></li>
-								            	</ul>
-								         	</li>
-								         	<li><a>About</a></li>
-								         	<li><a href="/logout">Logout</a></li>
-								      	</ul>
+								    <li><a id="menu">Applications</a>
+								        <ul>
+								            <li><a onclick="showConsole()">Terminal</a></li>
+								            <li><a onclick="showCalculator()">Calculator</a></li>
+								        </ul>
+								    </li>
+								    <li><a>About</a></li>
+								    <li><a href="/logout">Logout</a></li>
+								</ul>
 								<div id="status" style="font-size:14px;">
 	      							<span>
-	      								&nbsp;
+	      								
 	       			 					<img src="imgs/menu-btn.png" alt="" width="14" height="14" onclick="showMenu()" id="menu">
 	      							</span>
 	      							<span class="statusright">
