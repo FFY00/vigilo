@@ -68,7 +68,7 @@ if (isset($_SESSION["s_usr"]) && isset($_SESSION["s_pw"])){
 											<div class="col-xs-12 col-sm-6">	
 			    								<form name="login" role="form" class="omb_loginForm" action="/login/validation/" autocomplete="off" method="POST">
 													<div class="form-group has-feedback has-feedback-left">
-														<input type="text" class="form-control" name="usr" id="usr" placeholder="username">
+														<input type="text" class="form-control" name="usr" id="usr" placeholder="Username">
 														<i class="glyphicon glyphicon-user form-control-feedback"></i>
 													</div>
 													<span class="help-block"></span>
